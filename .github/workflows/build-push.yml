@@ -38,7 +38,7 @@ jobs:
         git config --global user.email "gracehpark@naver.com"
         git config --global user.name "gracehpark0120"
         git clone https://${{ secrets.GIT_TOKEN }}@github.com/foodteacher/devops.git
-        cd devops/be
+        cd devops/fe
         sed -i "s|gracehpark/foodteacher-fe:.*|gracehpark/foodteacher-fe:${{ github.sha }}|g" fe-deployment.yaml
         git commit -am "Update Docker Image Name"
         git push
