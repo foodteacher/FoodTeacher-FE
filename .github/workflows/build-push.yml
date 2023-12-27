@@ -38,7 +38,7 @@ jobs:
         git config --global user.email "gracehpark@naver.com"
         git config --global user.name "gracehpark0120"
         git clone https://${{ secrets.GIT_TOKEN }}@github.com/foodteacher/devops.git
-        IMAGE_TAG="gracehpark/foodteacher-fe:$(date +\%Y\%m\%d\%H\%M\%S)"
+        export IMAGE_TAG="gracehpark/foodteacher-fe:$(date +\%Y\%m\%d\%H\%M\%S)"
         cd sikseonsang/be
         sed -i "s|gracehpark/foodteacher-fe:.*|$IMAGE_TAG|g" fe-deployment.yaml
         git commit -am "Update Docker Image Name"
