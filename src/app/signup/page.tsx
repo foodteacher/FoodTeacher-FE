@@ -13,12 +13,12 @@ const Page = async ({
 }: {
   searchParams: { code: string; error: string };
 }) => {
-  const kakaoCode = searchParams.code;
+  // const kakaoCode = searchParams.code;
 
-  const errorCode = searchParams.error;
-  if (errorCode) return redirect("/");
+  // const errorCode = searchParams.error;
+  // if (errorCode) return redirect("/");
 
-  const jwtToken: JwtToken = await postKakaoCode(kakaoCode);
+  // const jwtToken: JwtToken = await postKakaoCode(kakaoCode);
 
   return <SignupTemplate />;
 };
