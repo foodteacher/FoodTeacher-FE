@@ -18,7 +18,7 @@ jobs:
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3.0.0
       
-    - name: Login to NCP Dockerhub
+    - name: Login to Dockerhub
       uses: docker/login-action@v3.0.0
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -42,6 +42,13 @@ jobs:
         sed -i "s|gracehpark/foodteacher-fe:.*|gracehpark/foodteacher-fe:${{ github.sha }}|g" fe-deployment.yaml
         git commit -am "Update Docker Image Name"
         git push
+
+    - name: Discord notification
+      env:
+        DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      uses: Ilshidur/action-discord@master
+      with:
+        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
   
 
 
