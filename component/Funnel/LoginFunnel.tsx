@@ -9,9 +9,9 @@ import MainButton from "../button/MainButton";
 const LoginFunnel = () => {
   const router = useRouter();
 
-  // const signUpKakaoHandler = () => {
-  //   window.location.href = kakaoURL;
-  // };
+  const signUpKakaoHandler = () => {
+    window.location.href = kakaoURL;
+  };
 
   return (
     <VStack w={"100%"} h={"100vh"} justifyContent={"center"}>
@@ -19,9 +19,9 @@ const LoginFunnel = () => {
         <VerticalLogoIcon />
       </Box>
 
-      {/* <Box onClick={() => signUpKakaoHandler()} cursor={"pointer"}>
-          <KaKaoButtonIcon />
-        </Box> */}
+      <Box onClick={() => signUpKakaoHandler()} cursor={"pointer"}>
+        <KaKaoButtonIcon />
+      </Box>
 
       <ButtonGroup
         width={"100%"}
