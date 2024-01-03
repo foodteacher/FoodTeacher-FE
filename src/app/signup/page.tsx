@@ -19,8 +19,9 @@ const Page = async ({
 
   if (kakaoCode) {
     const jwtToken: JwtToken = await postKakaoCode(kakaoCode);
-    const token = await instacne.post("login", { code: kakaoCode });
-    console.log(token.data);
+    // const token = await instacne.post("/login", { code: kakaoCode });
+
+    console.log(jwtToken);
   } else {
     null;
   }

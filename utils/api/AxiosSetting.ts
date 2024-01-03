@@ -20,6 +20,11 @@ export interface DietResponse {
   잔소리: string;
 }
 
+export const getUserInform = async () => {
+  const res = await instacne.get("");
+  console.log(res);
+};
+
 export const getUserInfo = async () => {
   const userId = localStorage.getItem(`userId`);
   const res = await instacne.get(`/users/${userId}`);
@@ -33,11 +38,11 @@ export const getUserBmr = async () => {
 };
 
 export const postKakaoCode = async (code: string) => {
-  console.log("code :", code);
   try {
     const res = await instacne.post(`/login`, { code });
     return res.data;
   } catch (err) {
+    console.log(err);
     // return redirect("/");
   }
 };

@@ -1,5 +1,6 @@
 "use client";
-import { Box, ButtonGroup, Text, VStack } from "@chakra-ui/react";
+import { Box, ButtonGroup, Flex, Text, VStack } from "@chakra-ui/react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import KaKaoButtonIcon from "../icon/KaKaoButtonIcon";
 import VerticalLogoIcon from "../icon/VerticalLogoIcon";
@@ -22,26 +23,27 @@ const LoginFunnel = () => {
         <VerticalLogoIcon />
       </Box>
 
-      <Box onClick={() => signUpKakaoHandler()} cursor={"pointer"}>
-        <KaKaoButtonIcon />
-      </Box>
-
-      <ButtonGroup
+      <VStack
         width={"100%"}
         pos={"absolute"}
         bottom={"4vh"}
         padding={"0 22px"}
         justifyContent={"center"}
+        flexDir={"column"}
+        spacing={4}
       >
+        <Box h={"52px"} onClick={() => signUpKakaoHandler()} cursor={"pointer"}>
+          <KaKaoButtonIcon />
+        </Box>
         <MainButton
-          w={"100%"}
+          w={"346px"}
           h={"52px"}
           bgColor={"#40E98E"}
           onClick={() => router.push("/signup")}
         >
           <Text color={"#2B2C2C"}>체험하기</Text>
         </MainButton>
-      </ButtonGroup>
+      </VStack>
     </VStack>
   );
 };
