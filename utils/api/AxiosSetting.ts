@@ -3,7 +3,7 @@ import { UserInfoType } from "../../component/template/SignupTemplate";
 import { redirect } from "next/navigation";
 import { UserPostDietData } from "@/app/main/page";
 
-const instacne = axios.create({
+export const instacne = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   withCredentials: true,
   headers: {
@@ -33,15 +33,12 @@ export const getUserBmr = async () => {
 };
 
 export const postKakaoCode = async (code: string) => {
-  if (!code) {
-    return null;
-  } else {
-    try {
-      const res = await instacne.post(`/auth`, { code });
-      return res.data;
-    } catch (err) {
-      return redirect("/");
-    }
+  console.log("code :", code);
+  try {
+    const res = await instacne.post(`/login`, { code });
+    return res.data;
+  } catch (err) {
+    // return redirect("/");
   }
 };
 
