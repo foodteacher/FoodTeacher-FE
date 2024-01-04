@@ -50,9 +50,9 @@ const UserPhysicForm = ({ userInfo }: UserPhysicsFormPropsType) => {
       target_weight: parseInt(data.targetWeight),
     };
 
-    const jwt = localStorage.getItem("jwt");
+    const accessToken = localStorage.getItem("accessToken");
 
-    if (jwt) {
+    if (accessToken) {
       await postUserInfoMutation(newUserInfo);
     } else {
       localStorage.setItem("userInfo", JSON.stringify(newUserInfo));
