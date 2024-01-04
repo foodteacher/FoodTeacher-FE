@@ -50,17 +50,16 @@ export const postKakaoCode = async (code: string) => {
     const res = await instacne.post(`/login`, { code });
     return res.data;
   } catch (err) {
-    console.log("다시 시도해주세요.");
+    console.log(err);
     return redirect("/");
   }
 };
 
 export const registerUser = async (userInfo: UserInfoType) => {
-  const jwt = localStorage.getItem("jwt");
-  console.log(jwt);
+  const accessToken = localStorage.getItem("accessToken");
   const res = await instacne.patch("/users/register", userInfo, {
     headers: {
-      Authorization: `Bearer ${jwt}`,
+      Authorization: `Bearer ${accessToken}`,
     },
   });
   return res.data;
