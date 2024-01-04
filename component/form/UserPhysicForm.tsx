@@ -47,10 +47,17 @@ const UserPhysicForm = ({ userInfo }: UserPhysicsFormPropsType) => {
       age: parseInt(data.age),
       height: parseInt(data.height),
       weight: parseInt(data.weight),
-      targetWeight: parseInt(data.targetWeight),
+      target_weight: parseInt(data.targetWeight),
     };
 
-    localStorage.setItem("userInfo", JSON.stringify(newUserInfo));
+    const jwt = localStorage.getItem("jwt");
+
+    if (jwt) {
+      await postUserInfoMutation(newUserInfo);
+    } else {
+      localStorage.setItem("userInfo", JSON.stringify(newUserInfo));
+    }
+
     router.push("/main");
   };
 
