@@ -12,15 +12,15 @@ const Page = async ({
 }: {
   searchParams: { code: string; error: string };
 }) => {
-  const kakaoCode = searchParams.code;
+  // const kakaoCode = searchParams.code;
 
-  let jwtToken;
+  // let jwtToken;
 
-  if (kakaoCode) {
-    jwtToken = await postKakaoCode(kakaoCode);
-  }
+  // if (kakaoCode) {
+  //   jwtToken = await postKakaoCode(kakaoCode);
+  // }
 
-  return <SignupTemplate jwtToken={jwtToken} />;
+  return <SignupTemplate />;
 };
 
 export default Page;
