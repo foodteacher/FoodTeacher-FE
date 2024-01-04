@@ -37,11 +37,6 @@ export const getUserBmr = async () => {
   return res;
 };
 
-export const postUserInfo = async (userInfo: UserInfoType) => {
-  const res = await instacne.post("/users", userInfo);
-  return res.data;
-};
-
 export const postUserDiet = async (postDietData: UserPostDietData) => {
   const res = await instacne.post(`/users/diet-exercise-advice`, postDietData);
 
@@ -62,6 +57,12 @@ export const postKakaoCode = async (code: string) => {
 };
 
 export const registerUser = async (userInfo: UserInfoType) => {
-  const res = await instacne.post("/users/register", userInfo);
+  const jwt = localStorage.getItem("jwt");
+  console.log(jwt);
+  const res = await instacne.patch("/users/register", userInfo, {
+    headers: {
+      Authorization: `Bearer ${jwt}`,
+    },
+  });
   return res.data;
 };
