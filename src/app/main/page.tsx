@@ -18,7 +18,6 @@ export interface UserPostDietData extends UserInfoType {
 }
 
 const Page = () => {
-  const router = useRouter();
   const [chattingData, setChattingData] = useState<string>("");
   const [userDiet, setUserDiet] = useState<boolean>(false);
 
@@ -51,7 +50,7 @@ const Page = () => {
         age: userInfo.age,
         weight: userInfo.weight,
         height: userInfo.height,
-        targetWeight: userInfo.targetWeight,
+        target_weight: userInfo.target_weight,
         gender: userInfo.gender,
       };
       setChattingData(data.msg);

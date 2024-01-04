@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { postUserInfo } from "../api/AxiosSetting";
 import { UserInfoType } from "../../component/template/SignupTemplate";
+import { registerUser } from "../api/AxiosSetting";
 
 export const usePostUserInfo = () => {
   const {
@@ -8,7 +8,7 @@ export const usePostUserInfo = () => {
     mutateAsync: postUserInfoMutation,
     isLoading,
   } = useMutation({
-    mutationFn: (userInfo: UserInfoType) => postUserInfo(userInfo),
+    mutationFn: (userInfo: UserInfoType) => registerUser(userInfo),
     onError: () => {},
     onSuccess: () => {},
   });

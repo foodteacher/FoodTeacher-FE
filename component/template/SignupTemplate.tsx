@@ -14,7 +14,7 @@ export interface UserInfoType {
   age: number;
   height: number;
   weight: number;
-  targetWeight: number;
+  target_weight: number;
 }
 
 const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtTokenType }) => {
@@ -25,13 +25,13 @@ const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtTokenType }) => {
     age: 0,
     height: 0,
     weight: 0,
-    targetWeight: 0,
+    target_weight: 0,
   });
   const { funnel, setFunnel } = useFunnel("userAgreement");
 
   useEffect(() => {
     if (jwtToken) {
-      localStorage.setItem("jwtToken", jwtToken.access_token);
+      localStorage.setItem("jwt", jwtToken.access_token);
     } else {
       return;
     }

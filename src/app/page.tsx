@@ -19,12 +19,18 @@ export default function Home() {
     if (userId) return router.push("/main");
   }, [colorMode, setColorMode, router]);
 
+  useEffect(() => {
+    const jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      localStorage.removeItem("jwt");
+    }
+  }, []);
+
   return (
     <Flex
       as={"main"}
       flexDir={"column"}
       w={"100%"}
-      // h={"100vh"}
       pos={"relative"}
       margin={"0 auto"}
       maxW={"420px"}
