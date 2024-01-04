@@ -117,7 +117,7 @@ const MyPageTemplate = () => {
                   목표 체중
                 </Text>
                 <Text fontWeight={"semibold"} color={"#2F2F2F"}>
-                  {userData?.targetWeight}
+                  {userData?.target_weight}
                 </Text>
               </HStack>
             </VStack>
