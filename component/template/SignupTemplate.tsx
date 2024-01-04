@@ -6,7 +6,7 @@ import { useFunnel } from "../../utils/hooks/useFunnel";
 import UserAgreementForm from "../form/UserAgreementForm";
 import UserInfoForm from "../form/UserInfoForm";
 import UserPhysicForm from "../form/UserPhysicForm";
-import { JwtToken } from "@/app/signup/page";
+import { JwtTokenType } from "@/app/signup/page";
 
 export interface UserInfoType {
   name: string;
@@ -17,7 +17,7 @@ export interface UserInfoType {
   targetWeight: number;
 }
 
-const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtToken }) => {
+const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtTokenType }) => {
   const [progress, setProgress] = useState<number>(33.3);
   const [userInfo, setUserInfo] = useState<UserInfoType>({
     name: "",
@@ -28,6 +28,14 @@ const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtToken }) => {
     targetWeight: 0,
   });
   const { funnel, setFunnel } = useFunnel("userAgreement");
+
+  useEffect(() => {
+    if (jwtToken) {
+      localStorage.setItem("jwtToken", jwtToken.access_token);
+    } else {
+      return;
+    }
+  }, [jwtToken]);
 
   return (
     <>

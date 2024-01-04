@@ -37,16 +37,6 @@ export const getUserBmr = async () => {
   return res;
 };
 
-export const postKakaoCode = async (code: string) => {
-  try {
-    const res = await instacne.post(`/login`, { code });
-    return res.data;
-  } catch (err) {
-    console.log(err);
-    // return redirect("/");
-  }
-};
-
 export const postUserInfo = async (userInfo: UserInfoType) => {
   const res = await instacne.post("/users", userInfo);
   return res.data;
@@ -57,4 +47,21 @@ export const postUserDiet = async (postDietData: UserPostDietData) => {
 
   const data: DietResponse = await res.data;
   return data;
+};
+
+/**v2 */
+
+export const postKakaoCode = async (code: string) => {
+  try {
+    const res = await instacne.post(`/login`, { code });
+    return res.data;
+  } catch (err) {
+    console.log("다시 시도해주세요.");
+    return redirect("/");
+  }
+};
+
+export const registerUser = async (userInfo: UserInfoType) => {
+  const res = await instacne.post("/users/register", userInfo);
+  return res.data;
 };

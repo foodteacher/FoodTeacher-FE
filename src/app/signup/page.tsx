@@ -3,8 +3,8 @@ import { redirect } from "next/navigation";
 import SignupTemplate from "../../../component/template/SignupTemplate";
 import { instacne, postKakaoCode } from "../../../utils/api/AxiosSetting";
 
-export interface JwtToken {
-  jwt: string;
+export interface JwtTokenType {
+  access_token: string;
   token_type: string;
 }
 
@@ -15,18 +15,19 @@ const Page = async ({
 }) => {
   const kakaoCode = searchParams.code;
 
-  const errorCode = searchParams.error;
+  // const errorCode = searchParams.error;
+
+  let jwtToken;
 
   if (kakaoCode) {
-    const jwtToken: JwtToken = await postKakaoCode(kakaoCode);
-    // const token = await instacne.post("/login", { code: kakaoCode });
-
-    console.log(jwtToken);
+    jwtToken = await postKakaoCode(kakaoCode);
   } else {
     null;
   }
 
-  return <SignupTemplate />;
+  console.log(jwtToken);
+
+  return <SignupTemplate jwtToken={jwtToken} />;
 };
 
 export default Page;
