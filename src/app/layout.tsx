@@ -4,6 +4,7 @@ import QueryLayout from "./QueryLayout";
 import TheHeader from "../../component/header/TheHeader";
 import TheMainHeader from "../../component/header/TheMainHeader";
 import Script from "next/script";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -43,18 +44,9 @@ export default function RootLayout({
     <html lang="ko" style={{ height: "100%" }} suppressHydrationWarning>
       <head>
         <link rel="icon" href="%PUBLIC_URL%/logo.ico" />
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=G-HBH9V3GMM7"
-        ></Script>
-        <Script id="google-analytics">
-          {`window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-HBH9V3GMM7')`}
-        </Script>
       </head>
       <body suppressHydrationWarning={true}>
+        <GoogleAnalytics />
         <QueryLayout>
           <ChakraLayout>
             <TheMainHeader />
