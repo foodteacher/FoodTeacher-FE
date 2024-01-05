@@ -29,14 +29,6 @@ const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtTokenType }) => {
   });
   const { funnel, setFunnel } = useFunnel("userAgreement");
 
-  useEffect(() => {
-    if (jwtToken) {
-      localStorage.setItem("jwt", jwtToken.access_token);
-    } else {
-      return;
-    }
-  }, [jwtToken]);
-
   return (
     <>
       <Progress
