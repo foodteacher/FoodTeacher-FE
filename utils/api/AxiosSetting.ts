@@ -64,3 +64,13 @@ export const registerUser = async (userInfo: UserInfoType) => {
   });
   return res.data;
 };
+
+export const getUser = async () => {
+  const accessToken = localStorage.getItem("accessToken");
+  const res = await instacne.get(`/users/me`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  return res.data;
+};

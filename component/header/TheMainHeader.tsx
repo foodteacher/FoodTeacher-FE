@@ -5,10 +5,12 @@ import { usePathname, useRouter } from "next/navigation";
 import TextLogoIcon from "../icon/TextLogoIcon";
 import UserIcon from "../icon/UserIcon";
 import GoBackArrowIcon from "../icon/GoBackArrowIcon";
+import { useUser } from "../../utils/hooks/useUser";
 
 const TheMainHeader = () => {
   const path = usePathname();
   const router = useRouter();
+  const { data } = useUser();
 
   return (
     <>

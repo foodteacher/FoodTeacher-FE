@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getUserInfo } from "../api/AxiosSetting";
+import { getUser, getUserInfo } from "../api/AxiosSetting";
 
 export const useUser = () => {
   const { data, isLoading } = useQuery({
-    queryKey: ["userInfo"],
-    queryFn: () => getUserInfo(),
+    queryKey: ["user"],
+    queryFn: () => getUser(),
   });
 
   return { data, isLoading };
