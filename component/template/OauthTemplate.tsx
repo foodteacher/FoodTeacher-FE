@@ -1,13 +1,24 @@
 "use client";
+import { JwtTokenType } from "@/app/signup/page";
 import { useRouter } from "next/navigation";
-import React from "react";
+import { Router } from "next/router";
+import React, { useEffect } from "react";
 
 const OauthTemplate = ({ jwtToken }: { jwtToken: string }) => {
-  useRouter().replace("/signup");
+  const router = useRouter();
+  useEffect(() => {
+    if (jwtToken) {
+      localStorage.setItem("accessToken", jwtToken);
+
+      router.replace("/signup");
+    } else {
+      return;
+    }
+  }, [jwtToken, router]);
   return (
     <div>
       loading....
-      <p>{jwtToken}</p>
+      {/* <p>{jwtToken}</p> */}
     </div>
   );
 };
