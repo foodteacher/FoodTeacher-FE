@@ -20,7 +20,14 @@ const Page = async ({
     jwtToken = await postKakaoCode(kakaoCode);
   }
 
-  return <OauthTemplate jwtToken={jwtToken.access_token} />;
+  console.log(jwtToken);
+
+  return (
+    <OauthTemplate
+      jwtToken={jwtToken.access_token}
+      // jwtToken={kakaoCode}
+    />
+  );
 };
 
 export default Page;
