@@ -5,6 +5,7 @@ import { UserPostDietData } from "@/app/main/page";
 
 export const instacne = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
+  // "https://api.foodteacher.xyz/",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
