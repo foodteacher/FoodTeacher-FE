@@ -17,11 +17,11 @@ export interface LoginUserType {
 }
 
 export const useUser = () => {
-  const { data, isLoading } = useQuery({
+  const { data: userData, isLoading } = useQuery({
     queryKey: ["user"],
     queryFn: () => getUser(),
     retry: false,
   });
 
-  return { data, isLoading };
+  return { userData, isLoading };
 };

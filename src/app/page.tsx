@@ -5,11 +5,13 @@ import MainFunnel from "../../component/Funnel/MainFunnel";
 import LoginFunnel from "../../component/Funnel/LoginFunnel";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useUser } from "../../utils/hooks/useUser";
 
 export default function Home() {
   const router = useRouter();
   const { colorMode, setColorMode } = useColorMode();
   const { funnel, setFunnel } = useFunnel("main");
+  const { userData } = useUser();
 
   useEffect(() => {
     if (colorMode === "dark") {
@@ -20,11 +22,15 @@ export default function Home() {
   }, [colorMode, setColorMode, router]);
 
   useEffect(() => {
-    const jwt = localStorage.getItem("jwt");
-    if (jwt) {
-      localStorage.removeItem("jwt");
+    // const jwt = localStorage.getItem("jwt");
+    // if (jwt) {
+    //   localStorage.removeItem("jwt");
+    // }
+    if (userData) {
+      router.push("/main");
     }
-  }, []);
+    console.log(userData);
+  }, [userData, router]);
 
   return (
     <Flex
