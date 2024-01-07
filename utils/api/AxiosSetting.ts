@@ -88,3 +88,14 @@ export const postUserDiet = async (postDietData: UserPostDietData) => {
   const data: DietResponse = await res.data;
   return data;
 };
+
+export const postLogout = async () => {
+  const accessToken = localStorage.getItem("accessToken");
+  const res = await instacne.post(`/logout`, "", {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  return res.data;
+};
