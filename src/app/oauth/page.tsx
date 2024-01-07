@@ -22,12 +22,7 @@ const Page = async ({
 
   console.log(jwtToken);
 
-  return (
-    <OauthTemplate
-      jwtToken={jwtToken.access_token}
-      // jwtToken={kakaoCode}
-    />
-  );
+  return <OauthTemplate jwtToken={jwtToken.access_token} />;
 };
 
 export default Page;

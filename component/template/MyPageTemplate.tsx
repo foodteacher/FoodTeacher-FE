@@ -10,10 +10,12 @@ import TodayReportCard from "../card/TodayReportCard";
 import { UserInfoType } from "./SignupTemplate";
 import { DietResponse } from "../../utils/api/AxiosSetting";
 import { useUser } from "../../utils/hooks/useUser";
+import { useLogout } from "../../utils/hooks/useLogout";
 
 const MyPageTemplate = () => {
   const router = useRouter();
-  const { data: loginUserInfo } = useUser();
+  const { userData: loginUserInfo } = useUser();
+  const { logoutMutation } = useLogout();
   const [userData, setUserData] = useState<UserInfoType>();
   const [userDiet, setUserDiet] = useState<DietResponse>();
 
@@ -25,6 +27,17 @@ const MyPageTemplate = () => {
     const userDietData: DietResponse = JSON.parse(userDiet);
     setUserDiet(userDietData);
   }, []);
+
+  const logoutHandler = async () => {
+    if (loginUserInfo) {
+      await logoutMutation();
+    } else {
+      localStorage.removeItem(`userInfo`);
+      localStorage.removeItem(`userDiet`);
+    }
+
+    // return router.push("/");
+  };
 
   return (
     <>
@@ -141,11 +154,7 @@ const MyPageTemplate = () => {
             alignSelf={"flex-start"}
             marginLeft={"15px"}
             cursor={"pointer"}
-            onClick={() => {
-              localStorage.removeItem(`userInfo`);
-              localStorage.removeItem(`userDiet`);
-              router.push("/");
-            }}
+            onClick={() => logoutHandler()}
           >
             로그아웃
           </Text>
