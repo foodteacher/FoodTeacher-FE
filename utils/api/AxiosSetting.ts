@@ -2,6 +2,7 @@ import axios from "axios";
 import { UserInfoType } from "../../component/template/SignupTemplate";
 import { redirect } from "next/navigation";
 import { UserPostDietData } from "@/app/main/page";
+import { LoginUserType } from "../hooks/useUser";
 
 export const instacne = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -38,11 +39,11 @@ export const getUserBmr = async () => {
   return res;
 };
 
-export const postUserDiet = async (postDietData: UserPostDietData) => {
-  const res = await instacne.post(`/users/diet-exercise-advice`, postDietData);
-  const data: DietResponse = await res.data;
-  return data;
-};
+// export const postUserDiet = async (postDietData: UserPostDietData) => {
+//   const res = await instacne.post(`/users/diet-exercise-advice`, postDietData);
+//   const data: DietResponse = await res.data;
+//   return data;
+// };
 
 /**v2 */
 
@@ -73,5 +74,17 @@ export const getUser = async () => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  return res.data;
+  const data: LoginUserType = await res.data;
+  return data;
+};
+
+export const postUserDiet = async (postDietData: UserPostDietData) => {
+  const accessToken = localStorage.getItem("accessToken");
+  const res = await instacne.post(`/gpt/diet-exercise-advice`, postDietData, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const data: DietResponse = await res.data;
+  return data;
 };

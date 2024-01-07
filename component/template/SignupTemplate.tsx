@@ -1,12 +1,11 @@
 "use client";
 
-import { Flex, Progress } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Box, Flex, Progress } from "@chakra-ui/react";
+import { useState } from "react";
 import { useFunnel } from "../../utils/hooks/useFunnel";
 import UserAgreementForm from "../form/UserAgreementForm";
 import UserInfoForm from "../form/UserInfoForm";
 import UserPhysicForm from "../form/UserPhysicForm";
-import { JwtTokenType } from "@/app/signup/page";
 
 export interface UserInfoType {
   name: string;
@@ -17,7 +16,7 @@ export interface UserInfoType {
   target_weight: number;
 }
 
-const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtTokenType }) => {
+const SignupTemplate = () => {
   const [progress, setProgress] = useState<number>(33.3);
   const [userInfo, setUserInfo] = useState<UserInfoType>({
     name: "",
@@ -31,14 +30,14 @@ const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtTokenType }) => {
 
   return (
     <>
-      <Progress
-        bgColor={"#D9D9D9"}
-        // colorScheme="black"
-        size="xs"
-        isAnimated={true}
-        value={progress}
-      />
-
+      <Box w={"100%"}>
+        <Progress
+          bgColor={"#D9D9D9"}
+          size="xs"
+          isAnimated={true}
+          value={progress}
+        />
+      </Box>
       <Flex
         flexDir={"column"}
         w={"100%"}
@@ -46,7 +45,6 @@ const SignupTemplate = ({ jwtToken }: { jwtToken?: JwtTokenType }) => {
         pos={"relative"}
         maxW={"390px"}
         padding={"60px 22px"}
-        margin={"0 auto"}
         alignItems={"center"}
       >
         {funnel === "userAgreement" && (

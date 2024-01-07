@@ -9,9 +9,11 @@ import CloseIcon from "../icon/CloseIcon";
 import TodayReportCard from "../card/TodayReportCard";
 import { UserInfoType } from "./SignupTemplate";
 import { DietResponse } from "../../utils/api/AxiosSetting";
+import { useUser } from "../../utils/hooks/useUser";
 
 const MyPageTemplate = () => {
   const router = useRouter();
+  const { data: loginUserInfo } = useUser();
   const [userData, setUserData] = useState<UserInfoType>();
   const [userDiet, setUserDiet] = useState<DietResponse>();
 
@@ -79,7 +81,7 @@ const MyPageTemplate = () => {
                   성별
                 </Text>
                 <Text fontWeight={"semibold"} color={"#2F2F2F"}>
-                  {userData?.gender}
+                  {loginUserInfo?.gender || userData?.gender || ""}
                 </Text>
               </HStack>
               <HStack spacing={"32px"}>
@@ -87,7 +89,7 @@ const MyPageTemplate = () => {
                   나이
                 </Text>
                 <Text fontWeight={"semibold"} color={"#2F2F2F"}>
-                  {userData?.age}
+                  {loginUserInfo?.age || userData?.age || ""}
                 </Text>
               </HStack>
             </VStack>
@@ -101,7 +103,7 @@ const MyPageTemplate = () => {
                   키
                 </Text>
                 <Text fontWeight={"semibold"} color={"#2F2F2F"}>
-                  {userData?.height}
+                  {loginUserInfo?.height || userData?.height || ""}
                 </Text>
               </HStack>
               <HStack spacing={"32px"}>
@@ -109,7 +111,7 @@ const MyPageTemplate = () => {
                   체중
                 </Text>
                 <Text fontWeight={"semibold"} color={"#2F2F2F"}>
-                  {userData?.weight}
+                  {loginUserInfo?.weight || userData?.weight || ""}
                 </Text>
               </HStack>
               <HStack spacing={"32px"}>
@@ -117,7 +119,9 @@ const MyPageTemplate = () => {
                   목표 체중
                 </Text>
                 <Text fontWeight={"semibold"} color={"#2F2F2F"}>
-                  {userData?.target_weight}
+                  {loginUserInfo?.target_weight ||
+                    userData?.target_weight ||
+                    ""}
                 </Text>
               </HStack>
             </VStack>
