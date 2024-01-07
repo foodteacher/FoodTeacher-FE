@@ -13,13 +13,20 @@ const TheMainHeader = () => {
   const { data } = useUser();
 
   return (
-    <>
+    <Box
+      margin={"0 auto"}
+      w={"100%"}
+      display={"flex"}
+      justifyContent={"center"}
+    >
       <Flex
         as={"header"}
         position={"absolute"}
         top={"0"}
         padding={"4px 22px"}
         w={"100%"}
+        maxW={"420px"}
+        margin={"0 auto"}
         h={"52px"}
         alignItems={"center"}
         justifyContent={"space-between"}
@@ -54,7 +61,7 @@ const TheMainHeader = () => {
           </>
         )}
       </Flex>
-    </>
+    </Box>
   );
 };
 
