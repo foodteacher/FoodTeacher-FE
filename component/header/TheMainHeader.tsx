@@ -13,55 +13,59 @@ const TheMainHeader = () => {
   const { data } = useUser();
 
   return (
-    <Box
-      margin={"0 auto"}
-      w={"100%"}
-      display={"flex"}
-      justifyContent={"center"}
-    >
-      <Flex
-        as={"header"}
-        position={"absolute"}
-        top={"0"}
-        padding={"4px 22px"}
-        w={"100%"}
-        maxW={"420px"}
-        margin={"0 auto"}
-        h={"52px"}
-        alignItems={"center"}
-        justifyContent={"space-between"}
-        zIndex={1000}
-      >
-        {path === "/main" && (
-          <>
-            <TextLogoIcon />
-            <Text onClick={() => router.push("/mypage")} cursor={"pointer"}>
-              <UserIcon />
-            </Text>
-          </>
-        )}
+    <>
+      {path !== "/signup" && (
+        <Box
+          margin={"0 auto"}
+          w={"100%"}
+          display={"flex"}
+          justifyContent={"center"}
+        >
+          <Flex
+            as={"header"}
+            position={"absolute"}
+            top={"0"}
+            padding={"4px 22px"}
+            w={"100%"}
+            maxW={"420px"}
+            margin={"0 auto"}
+            h={"52px"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+            zIndex={1000}
+          >
+            {path === "/main" && (
+              <>
+                <TextLogoIcon />
+                <Text onClick={() => router.push("/mypage")} cursor={"pointer"}>
+                  <UserIcon />
+                </Text>
+              </>
+            )}
 
-        {path === "/detail" && (
-          <>
-            <Box
-              pos={"absolute"}
-              cursor={"pointer"}
-              onClick={() => router.push("/main")}
-            >
-              <GoBackArrowIcon />
-            </Box>
-            <Text
-              margin={"0 auto"}
-              color={"#FFFFFF"}
-              fontSize={"20px"}
-              fontWeight={"medium"}
-            >
-              레포트 상세보기
-            </Text>
-          </>
-        )}
-      </Flex>
-    </Box>
+            {path === "/detail" && (
+              <>
+                <Box
+                  pos={"absolute"}
+                  cursor={"pointer"}
+                  onClick={() => router.push("/main")}
+                >
+                  <GoBackArrowIcon />
+                </Box>
+                <Text
+                  margin={"0 auto"}
+                  color={"#FFFFFF"}
+                  fontSize={"20px"}
+                  fontWeight={"medium"}
+                >
+                  레포트 상세보기
+                </Text>
+              </>
+            )}
+          </Flex>
+        </Box>
+      )}
+    </>
   );
 };
 

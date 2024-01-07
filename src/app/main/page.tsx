@@ -12,7 +12,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { UserInfoType } from "../../../component/template/SignupTemplate";
 
-export interface UserPostDietData extends UserInfoType {
+export interface UserPostDietData {
   query: string;
   userId?: string | null;
 }
@@ -40,21 +40,23 @@ const Page = () => {
   }, [isLoading]);
 
   const onSubmit: SubmitHandler<DietMsgType> = async (data) => {
+    const dietMsg = data.msg;
     reset();
     const userInfoString: string | null = localStorage.getItem("userInfo");
     if (userInfoString !== null) {
       const userInfo: UserInfoType = JSON.parse(userInfoString);
-      const userInfoData: UserPostDietData = {
-        query: data.msg,
-        name: userInfo.name,
-        age: userInfo.age,
-        weight: userInfo.weight,
-        height: userInfo.height,
-        target_weight: userInfo.target_weight,
-        gender: userInfo.gender,
-      };
-      setChattingData(data.msg);
-      await postUserDietMutation(userInfoData);
+      // const userInfoData: UserPostDietData = {
+      //   query: data.msg,
+      //   name: userInfo.name,
+      //   age: userInfo.age,
+      //   weight: userInfo.weight,
+      //   height: userInfo.height,
+      //   target_weight: userInfo.target_weight,
+      //   gender: userInfo.gender,
+      // };
+      setChattingData(dietMsg);
+    } else {
+      await postUserDietMutation({ query: dietMsg });
     }
   };
 
