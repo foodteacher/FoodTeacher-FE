@@ -10,7 +10,7 @@ import { useUser } from "../../utils/hooks/useUser";
 const TheMainHeader = () => {
   const path = usePathname();
   const router = useRouter();
-  const { data } = useUser();
+  const { userData } = useUser();
 
   return (
     <>
