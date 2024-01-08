@@ -65,6 +65,7 @@ const Page = () => {
       <Flex
         flexDir={"column"}
         w={"100%"}
+        h={"100%"}
         pos={"relative"}
         margin={"0 auto"}
         maxW={"420px"}
