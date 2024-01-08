@@ -11,6 +11,8 @@ import { usePostUserDiet } from "../../../utils/hooks/usePostUserDiet";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { UserInfoType } from "../../../component/template/SignupTemplate";
+import { useUser } from "../../../utils/hooks/useUser";
+import { Router } from "next/router";
 
 export interface UserPostDietData {
   query: string;
@@ -20,6 +22,15 @@ export interface UserPostDietData {
 const Page = () => {
   const [chattingData, setChattingData] = useState<string>("");
   const [userDiet, setUserDiet] = useState<boolean>(false);
+  const { userData, isLoggedIn } = useUser();
+
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!isLoggedIn) {
+      router.push("/");
+    }
+  }, [isLoggedIn, router]);
 
   const {
     userDietResponseData: dietResponseData,
