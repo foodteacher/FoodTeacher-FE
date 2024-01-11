@@ -6,7 +6,6 @@ import { LoginUserType } from "../hooks/useUser";
 
 export const instacne = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
-  // "https://api.foodteacher.xyz/",
   withCredentials: true,
   headers: {
     "Content-Type": "application/json",
@@ -24,7 +23,6 @@ export interface DietResponse {
 
 export const getUserInform = async () => {
   const res = await instacne.get("");
-  console.log(res);
 };
 
 export const getUserInfo = async () => {
@@ -38,12 +36,6 @@ export const getUserBmr = async () => {
   const res = await instacne.get(`/users/${userId}/bmr`);
   return res;
 };
-
-// export const postUserDiet = async (postDietData: UserPostDietData) => {
-//   const res = await instacne.post(`/users/diet-exercise-advice`, postDietData);
-//   const data: DietResponse = await res.data;
-//   return data;
-// };
 
 /**v2 */
 
