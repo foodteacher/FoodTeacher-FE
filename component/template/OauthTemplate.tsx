@@ -14,16 +14,14 @@ const OauthTemplate = ({ jwtToken }: { jwtToken: string }) => {
     const routingHandler = async () => {
       if (jwtToken) {
         localStorage.setItem("accessToken", jwtToken);
-        console.log(isLoading, isLoggedIn);
         if (!isLoading) {
           await queryClient.invalidateQueries(["user"]);
           if (isLoggedIn) {
-            console.log(2);
-            console.log(userData);
-
             if (userData) {
+              console.log("main");
               router.push("/main");
             } else {
+              console.log("signup");
               router.push("/signup");
             }
           }

@@ -1,4 +1,3 @@
-import axios from "axios";
 import OauthTemplate from "../../../component/template/OauthTemplate";
 import { postKakaoCode } from "../../../utils/api/AxiosSetting";
 
