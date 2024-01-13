@@ -83,7 +83,7 @@ const MyPageTemplate = () => {
               fontWeight={"semibold"}
               fontSize={"18px"}
             >
-              {userData?.name}
+              {loginUserInfo?.name || userData?.name || ""}
             </Text>
           </VStack>
           <TodayReportCard bgColor={"#FFFFFF"}>
