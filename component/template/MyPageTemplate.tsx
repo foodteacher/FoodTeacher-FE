@@ -33,7 +33,6 @@ const MyPageTemplate = () => {
   const logoutHandler = async () => {
     if (loginUserInfo) {
       // await logoutMutation();
-      console.log(1);
       localStorage.removeItem("accessToken");
       queryClient.removeQueries({ queryKey: ["user"] });
     } else {

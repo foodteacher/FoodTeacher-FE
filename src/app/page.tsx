@@ -22,14 +22,9 @@ export default function Home() {
   }, [colorMode, setColorMode, router]);
 
   useEffect(() => {
-    // const jwt = localStorage.getItem("jwt");
-    // if (jwt) {
-    //   localStorage.removeItem("jwt");
-    // }
     if (userData) {
       router.push("/main");
     }
-    console.log(userData);
   }, [userData, router]);
 
   return (
