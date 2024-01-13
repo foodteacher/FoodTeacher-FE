@@ -12,7 +12,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { UserInfoType } from "../../../component/template/SignupTemplate";
 import { useUser } from "../../../utils/hooks/useUser";
-import { Router } from "next/router";
+import { instacne } from "../../../utils/api/AxiosSetting";
 
 export interface UserPostDietData {
   query: string;
