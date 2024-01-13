@@ -11,10 +11,12 @@ import { UserInfoType } from "./SignupTemplate";
 import { DietResponse } from "../../utils/api/AxiosSetting";
 import { useUser } from "../../utils/hooks/useUser";
 import { useLogout } from "../../utils/hooks/useLogout";
+import useGetUserDietInfo from "../../utils/hooks/useGetUserDietInfo";
 
 const MyPageTemplate = () => {
   const router = useRouter();
-  const { userData: loginUserInfo } = useUser();
+  // const { userData: loginUserInfo } = useUser();
+  const { userDietInfo: loginUserInfo } = useGetUserDietInfo();
   const { logoutMutation } = useLogout();
   const [userData, setUserData] = useState<UserInfoType>();
   const [userDiet, setUserDiet] = useState<DietResponse>();
@@ -35,7 +37,6 @@ const MyPageTemplate = () => {
       localStorage.removeItem(`userInfo`);
       localStorage.removeItem(`userDiet`);
     }
-
     // return router.push("/");
   };
 
