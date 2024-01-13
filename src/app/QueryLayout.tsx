@@ -12,6 +12,7 @@ export default function QueryLayout({ children }: PropsWithChildren) {
           queries: {
             refetchOnWindowFocus: false,
             refetchOnReconnect: false,
+            retry: 2,
           },
           mutations: {
             retry: false,
@@ -19,12 +20,6 @@ export default function QueryLayout({ children }: PropsWithChildren) {
         },
       })
   );
-
-  // const jwt = localStorage.getItem("jwt");
-
-  // const { data } = useUser();
-
-  // useEffect(() => {}, [jwt]);
 
   return (
     <QueryClientProvider client={queryClient}>
