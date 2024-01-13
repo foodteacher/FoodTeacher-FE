@@ -27,7 +27,9 @@ const Page = () => {
   const router = useRouter();
 
   useEffect(() => {
-    if (!isLoggedIn) {
+    let userDietData: any = localStorage.getItem("userInfo");
+
+    if (!isLoggedIn && !userDietData) {
       router.push("/");
     }
   }, [isLoggedIn, router]);

@@ -3,10 +3,11 @@ import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 import { useUser } from "../../utils/hooks/useUser";
 import { useQueryClient } from "@tanstack/react-query";
+import { useToast } from "@chakra-ui/react";
 
 const OauthTemplate = ({ jwtToken }: { jwtToken: string }) => {
   const { userData, isLoading, isLoggedIn } = useUser();
-
+  const toast = useToast();
   const router = useRouter();
   const queryClient = useQueryClient();
 
@@ -18,10 +19,8 @@ const OauthTemplate = ({ jwtToken }: { jwtToken: string }) => {
           await queryClient.invalidateQueries(["user"]);
           if (isLoggedIn) {
             if (userData?.name) {
-              console.log("main");
               router.push("/main");
             } else {
-              console.log("signup");
               router.push("/signup");
             }
           }
@@ -31,7 +30,7 @@ const OauthTemplate = ({ jwtToken }: { jwtToken: string }) => {
       }
     };
     routingHandler();
-  }, [jwtToken, router, userData, isLoading, isLoggedIn, queryClient]);
+  }, [jwtToken, router, userData, isLoading, isLoggedIn, queryClient, toast]);
 
   return <div>loading....</div>;
 };

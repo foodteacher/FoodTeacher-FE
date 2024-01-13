@@ -19,26 +19,6 @@ export interface LoginUserType extends BaseUserType {
   jwt_refresh_token: string;
 }
 
-export interface UserDietInfoType extends BaseUserType {
-  breakfast: {
-    additionalProp1: 0;
-    additionalProp2: 0;
-    additionalProp3: 0;
-  };
-  lunch: {
-    additionalProp1: 0;
-    additionalProp2: 0;
-    additionalProp3: 0;
-  };
-  dinner: {
-    additionalProp1: 0;
-    additionalProp2: 0;
-    additionalProp3: 0;
-  };
-  advice: "string";
-  recommended_exercise: "string";
-}
-
 export const useUser = () => {
   const {
     data: userData,

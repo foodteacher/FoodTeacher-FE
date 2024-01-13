@@ -67,7 +67,7 @@ const DietChattingMsgCart = ({
                     fontSize={"18px"}
                     fontWeight={"regular"}
                   >
-                    {` ${dietResponseData?.아침} Kcal`}
+                    {` ${dietResponseData?.breakfast.calories} Kcal`}
                   </Heading>
                 </Box>
                 <Box>
@@ -80,7 +80,7 @@ const DietChattingMsgCart = ({
                     fontSize={"18px"}
                     fontWeight={"regular"}
                   >
-                    {` ${dietResponseData?.점심} Kcal`}
+                    {` ${dietResponseData?.lunch.calories} Kcal`}
                   </Heading>
                 </Box>
                 <Box>
@@ -93,7 +93,7 @@ const DietChattingMsgCart = ({
                     fontSize={"18px"}
                     fontWeight={"regular"}
                   >
-                    {`${dietResponseData?.저녁} Kcal`}
+                    {`${dietResponseData?.dinner.calories} Kcal`}
                   </Heading>
                 </Box>
               </Flex>
