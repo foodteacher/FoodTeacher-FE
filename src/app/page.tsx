@@ -13,9 +13,6 @@ export default function Home() {
   const { funnel, setFunnel } = useFunnel("main");
   const { userData } = useUser();
 
-  console.log("process", process);
-  console.log("process.env", process.env);
-
   useEffect(() => {
     if (colorMode === "dark") {
       setColorMode("light");
@@ -25,14 +22,9 @@ export default function Home() {
   }, [colorMode, setColorMode, router]);
 
   useEffect(() => {
-    // const jwt = localStorage.getItem("jwt");
-    // if (jwt) {
-    //   localStorage.removeItem("jwt");
-    // }
     if (userData) {
       router.push("/main");
     }
-    console.log(userData);
   }, [userData, router]);
 
   return (
