@@ -61,7 +61,9 @@ const Page = () => {
           <CharacterImgCard userDiet={userDiet} />
           <TodayReportCard bgColor={"#000000"}>
             <VStack alignItems={"flex-start"} spacing={"5px"}>
-              <Text color={"#838383"}>{userData?.name}님의 하루 칼로리</Text>
+              <Text color={"#838383"}>
+                {loginUserInfo?.name || userData?.name}님의 하루 칼로리
+              </Text>
               <Text fontWeight={"semibold"}>
                 아침 :{" "}
                 {`${loginUserInfo?.breakfast.menu}
@@ -85,9 +87,11 @@ const Page = () => {
           </TodayReportCard>
           <TodayReportCard bgColor={"#000000"}>
             <VStack alignItems={"flex-start"} spacing={"5px"}>
-              <Text color={"#838383"}>{userData?.name}님께 드리는 팩폭</Text>
+              <Text color={"#838383"}>
+                {loginUserInfo?.name || userData?.name}님께 드리는 팩폭
+              </Text>
               <Text fontWeight={"semibold"}>
-                {loginUserInfo?.잔소리}
+                {loginUserInfo?.advice}
                 {/* 기초대사량에서
                 {(userDiet?.초과칼로리 as number) > 0
                   ? `${userDiet?.초과칼로리} Kcal 초과`
@@ -95,7 +99,7 @@ const Page = () => {
               </Text>
               <Text>권장 운동</Text>
               <Text fontWeight={"semibold"}>
-                {loginUserInfo?.운동필요시간 || userDiet?.운동필요시간}
+                {loginUserInfo?.recommended_exercise || userDiet?.운동필요시간}
               </Text>
             </VStack>
           </TodayReportCard>
