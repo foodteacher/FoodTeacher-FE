@@ -9,14 +9,12 @@ import CloseIcon from "../icon/CloseIcon";
 import TodayReportCard from "../card/TodayReportCard";
 import { UserInfoType } from "./SignupTemplate";
 import { DietResponse } from "../../utils/api/AxiosSetting";
-import { useLogout } from "../../utils/hooks/useLogout";
 import useGetUserDietInfo from "../../utils/hooks/useGetUserDietInfo";
 import { useQueryClient } from "@tanstack/react-query";
 
 const MyPageTemplate = () => {
   const router = useRouter();
   const { userDietInfo: loginUserInfo } = useGetUserDietInfo();
-  const { logoutMutation } = useLogout();
   const [userData, setUserData] = useState<UserInfoType>();
   const [userDiet, setUserDiet] = useState<DietResponse>();
   const queryClient = useQueryClient();
@@ -147,14 +145,22 @@ const MyPageTemplate = () => {
             <VStack spacing={"12px"} alignItems={"flex-start"}>
               <Text color={"#00CE84"}>오늘 하루 칼로리</Text>
               <Text color={"#2F2F2F"}>
-                아침 : {userDiet?.breakfast.menu} {userDiet?.breakfast.calories}{" "}
+                아침 :{" "}
+                {`${loginUserInfo?.breakfast.menu} ${loginUserInfo?.breakfast.calories}` ||
+                  `${userDiet?.breakfast.menu} ${userDiet?.breakfast.calories}`}
                 Kcal
               </Text>
               <Text color={"#2F2F2F"}>
-                점심 : {userDiet?.lunch.menu} {userDiet?.lunch.calories} Kcal
+                점심 :{" "}
+                {`${loginUserInfo?.lunch.menu} ${loginUserInfo?.lunch.calories}` ||
+                  `${userDiet?.lunch.menu} ${userDiet?.lunch.calories}`}{" "}
+                Kcal
               </Text>
               <Text color={"#2F2F2F"}>
-                저녁 : {userDiet?.dinner.menu} {userDiet?.dinner.calories} Kcal
+                저녁 :{" "}
+                {`${loginUserInfo?.dinner.menu} ${loginUserInfo?.dinner.calories}` ||
+                  `${userDiet?.dinner.menu} ${userDiet?.dinner.calories}`}{" "}
+                Kcal
               </Text>
             </VStack>
           </TodayReportCard>

@@ -28,6 +28,8 @@ export interface DietResponse extends UserInfoType {
   초과칼로리: number;
   운동필요시간: string;
   잔소리: string;
+  advice: string;
+  recommended_exercise: string;
 }
 
 export const getUserInform = async () => {
