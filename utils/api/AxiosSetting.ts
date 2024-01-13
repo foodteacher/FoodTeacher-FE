@@ -2,7 +2,7 @@ import axios from "axios";
 import { UserInfoType } from "../../component/template/SignupTemplate";
 import { redirect } from "next/navigation";
 import { UserPostDietData } from "@/app/main/page";
-import { LoginUserType } from "../hooks/useUser";
+import { LoginUserType, UserDietInfoType } from "../hooks/useUser";
 
 export const instacne = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -67,6 +67,17 @@ export const getUser = async () => {
     },
   });
   const data: LoginUserType = await res.data;
+  return data;
+};
+
+export const getUserDiet = async () => {
+  const accessToken = localStorage.getItem("accessToken");
+  const res = await instacne.get("/users/me/mypage", {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+  const data: UserDietInfoType = await res.data;
   return data;
 };
 
