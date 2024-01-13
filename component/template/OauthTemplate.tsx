@@ -17,7 +17,7 @@ const OauthTemplate = ({ jwtToken }: { jwtToken: string }) => {
         if (!isLoading) {
           await queryClient.invalidateQueries(["user"]);
           if (isLoggedIn) {
-            if (userData) {
+            if (userData?.name) {
               console.log("main");
               router.push("/main");
             } else {
