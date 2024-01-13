@@ -39,7 +39,7 @@ const MyPageTemplate = () => {
       localStorage.removeItem(`userInfo`);
       localStorage.removeItem(`userDiet`);
     }
-    // return router.push("/");
+    return router.push("/");
   };
 
   return (

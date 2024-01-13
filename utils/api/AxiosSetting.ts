@@ -47,7 +47,6 @@ export const getUserBmr = async () => {
 };
 
 /**v2 */
-
 export const postKakaoCode = async (code: string) => {
   try {
     const res = await instacne.post(`/login`, { code });
