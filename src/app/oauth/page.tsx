@@ -16,11 +16,8 @@ const Page = async ({
   let jwtToken;
 
   if (kakaoCode) {
-    jwtToken = await postKakaoCode(kakaoCode);
+    jwtToken = await postKakaoCode(kakaoCode1);
   }
-
-  console.log(jwtToken);
-
   return <OauthTemplate jwtToken={jwtToken.access_token} />;
 };
 
