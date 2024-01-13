@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { PropsWithChildren, useState } from "react";
 
 export default function QueryLayout({ children }: PropsWithChildren) {
   const [queryClient] = useState(
@@ -12,7 +12,7 @@ export default function QueryLayout({ children }: PropsWithChildren) {
           queries: {
             refetchOnWindowFocus: false,
             refetchOnReconnect: false,
-            retry: 2,
+            retry: 1,
           },
           mutations: {
             retry: false,

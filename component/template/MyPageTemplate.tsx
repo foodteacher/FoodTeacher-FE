@@ -12,6 +12,7 @@ import { DietResponse } from "../../utils/api/AxiosSetting";
 import { useUser } from "../../utils/hooks/useUser";
 import { useLogout } from "../../utils/hooks/useLogout";
 import useGetUserDietInfo from "../../utils/hooks/useGetUserDietInfo";
+import { useQueryClient } from "@tanstack/react-query";
 
 const MyPageTemplate = () => {
   const router = useRouter();
@@ -20,6 +21,7 @@ const MyPageTemplate = () => {
   const { logoutMutation } = useLogout();
   const [userData, setUserData] = useState<UserInfoType>();
   const [userDiet, setUserDiet] = useState<DietResponse>();
+  const queryClient = useQueryClient();
 
   useLayoutEffect(() => {
     let userInfo: any = localStorage.getItem("userInfo");
@@ -32,7 +34,10 @@ const MyPageTemplate = () => {
 
   const logoutHandler = async () => {
     if (loginUserInfo) {
-      await logoutMutation();
+      // await logoutMutation();
+      console.log(1);
+      localStorage.removeItem("accessToken");
+      queryClient.removeQueries({ queryKey: ["user"] });
     } else {
       localStorage.removeItem(`userInfo`);
       localStorage.removeItem(`userDiet`);
