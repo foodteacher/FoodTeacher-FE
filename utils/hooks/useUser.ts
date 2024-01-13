@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { getUser } from "../api/AxiosSetting";
+import { getUser, instacne } from "../api/AxiosSetting";
 
 export interface BaseUserType {
   name: string;

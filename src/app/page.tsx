@@ -6,6 +6,7 @@ import LoginFunnel from "../../component/Funnel/LoginFunnel";
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "../../utils/hooks/useUser";
+import { instacne } from "../../utils/api/AxiosSetting";
 
 export default function Home() {
   const router = useRouter();
@@ -25,6 +26,7 @@ export default function Home() {
     if (userData) {
       router.push("/main");
     }
+    instacne.get("/");
   }, [userData, router]);
 
   return (
