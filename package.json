@@ -22,7 +22,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.49.0",
-    "sharp": "^0.33.0"
+    "sharp": "^0.33.2"
   },
   "devDependencies": {
     "@types/node": "^20",
