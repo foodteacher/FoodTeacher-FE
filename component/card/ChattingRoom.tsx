@@ -1,5 +1,13 @@
 "use client";
-import { Divider, Flex, HStack, Heading, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Divider,
+  Flex,
+  HStack,
+  Heading,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import ChattingMsgCard from "../card/ChattingMsgCard";
 import DietChattingMsgCart from "./DietChattingMsgCard";
 import ChattingInput from "../input/ChattingInput";
@@ -12,6 +20,7 @@ import {
 } from "react-hook-form";
 import { DietResponse } from "../../utils/api/AxiosSetting";
 import RunningIcon from "../icon/RunningIcon";
+import { useEffect, useRef } from "react";
 
 export interface DietMsgType {
   msg: string;
@@ -34,6 +43,14 @@ const ChattingRoom = ({
   dietResponseData,
   chattingData,
 }: ChattingRoomPropsType) => {
+  const messageEndRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (messageEndRef.current) {
+      messageEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [dietResponseData]);
+
   return (
     <>
       <Flex
@@ -130,6 +147,7 @@ const ChattingRoom = ({
               <ChattingMsgCard>{dietResponseData.잔소리}</ChattingMsgCard>
             </>
           )}
+          <Box ref={messageEndRef} />
         </VStack>
       </Flex>
       <ChattingInput
