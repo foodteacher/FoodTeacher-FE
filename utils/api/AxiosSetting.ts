@@ -53,6 +53,7 @@ export const postKakaoCode = async (code: string) => {
     return res.data;
   } catch (err) {
     console.log(err);
+    console.log(code);
     return redirect("/");
   }
 };
