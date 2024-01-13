@@ -8,11 +8,13 @@ import CharacterImgCard from "../../../component/card/CharacterImgCard";
 import { useLayoutEffect, useState } from "react";
 import { UserInfoType } from "../../../component/template/SignupTemplate";
 import { DietResponse } from "../../../utils/api/AxiosSetting";
+import useGetUserDietInfo from "../../../utils/hooks/useGetUserDietInfo";
 
 const Page = () => {
   const router = useRouter();
   const [userData, setUserData] = useState<UserInfoType>();
   const [userDiet, setUserDiet] = useState<DietResponse>();
+  const { userDietInfo: loginUserInfo } = useGetUserDietInfo();
 
   useLayoutEffect(() => {
     let userInfo: any = localStorage.getItem("userInfo");
@@ -60,22 +62,41 @@ const Page = () => {
           <TodayReportCard bgColor={"#000000"}>
             <VStack alignItems={"flex-start"} spacing={"5px"}>
               <Text color={"#838383"}>{userData?.name}님의 하루 칼로리</Text>
-              <Text fontWeight={"semibold"}>아침 : {userDiet?.아침} kcal</Text>
-              <Text fontWeight={"semibold"}>점심 : {userDiet?.점심} kcal</Text>
-              <Text fontWeight={"semibold"}>저녁 : {userDiet?.저녁} kcal</Text>
+              <Text fontWeight={"semibold"}>
+                아침 :{" "}
+                {`${loginUserInfo?.breakfast.menu}
+                ${loginUserInfo?.breakfast.calories} ` ||
+                  `${userDiet?.breakfast.menu} ${userDiet?.breakfast.calories}`}
+                kcal
+              </Text>
+              <Text fontWeight={"semibold"}>
+                점심 :{" "}
+                {`${loginUserInfo?.lunch.menu} ${loginUserInfo?.lunch.calories}` ||
+                  `${userDiet?.lunch.menu} ${userDiet?.lunch.calories}`}{" "}
+                kcal
+              </Text>
+              <Text fontWeight={"semibold"}>
+                저녁 :{" "}
+                {`${loginUserInfo?.dinner.menu} ${loginUserInfo?.dinner.calories}` ||
+                  `${userDiet?.dinner.menu} ${userDiet?.dinner.calories}`}{" "}
+                kcal
+              </Text>
             </VStack>
           </TodayReportCard>
           <TodayReportCard bgColor={"#000000"}>
             <VStack alignItems={"flex-start"} spacing={"5px"}>
               <Text color={"#838383"}>{userData?.name}님께 드리는 팩폭</Text>
               <Text fontWeight={"semibold"}>
-                기초대사량에서{" "}
+                {loginUserInfo?.잔소리}
+                {/* 기초대사량에서
                 {(userDiet?.초과칼로리 as number) > 0
                   ? `${userDiet?.초과칼로리} Kcal 초과`
-                  : `${userDiet?.초과칼로리 as number} Kcal`}
+                  : `${userDiet?.초과칼로리 as number} Kcal`} */}
               </Text>
               <Text>권장 운동</Text>
-              <Text fontWeight={"semibold"}>{userDiet?.운동필요시간}</Text>
+              <Text fontWeight={"semibold"}>
+                {loginUserInfo?.운동필요시간 || userDiet?.운동필요시간}
+              </Text>
             </VStack>
           </TodayReportCard>
         </VStack>

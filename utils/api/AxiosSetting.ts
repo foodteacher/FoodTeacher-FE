@@ -2,7 +2,7 @@ import axios from "axios";
 import { UserInfoType } from "../../component/template/SignupTemplate";
 import { redirect } from "next/navigation";
 import { UserPostDietData } from "@/app/main/page";
-import { LoginUserType, UserDietInfoType } from "../hooks/useUser";
+import { LoginUserType } from "../hooks/useUser";
 
 export const instacne = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -12,10 +12,19 @@ export const instacne = axios.create({
   },
 });
 
-export interface DietResponse {
-  아침: number;
-  점심: number;
-  저녁: number;
+export interface DietResponse extends UserInfoType {
+  breakfast: {
+    menu: string;
+    calories: number;
+  };
+  lunch: {
+    menu: string;
+    calories: number;
+  };
+  dinner: {
+    menu: string;
+    calories: number;
+  };
   초과칼로리: number;
   운동필요시간: string;
   잔소리: string;
@@ -77,7 +86,7 @@ export const getUserDiet = async () => {
       Authorization: `Bearer ${accessToken}`,
     },
   });
-  const data: UserDietInfoType = await res.data;
+  const data: DietResponse = await res.data;
   return data;
 };
 

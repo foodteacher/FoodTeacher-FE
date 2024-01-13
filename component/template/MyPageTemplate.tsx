@@ -9,14 +9,12 @@ import CloseIcon from "../icon/CloseIcon";
 import TodayReportCard from "../card/TodayReportCard";
 import { UserInfoType } from "./SignupTemplate";
 import { DietResponse } from "../../utils/api/AxiosSetting";
-import { useUser } from "../../utils/hooks/useUser";
 import { useLogout } from "../../utils/hooks/useLogout";
 import useGetUserDietInfo from "../../utils/hooks/useGetUserDietInfo";
 import { useQueryClient } from "@tanstack/react-query";
 
 const MyPageTemplate = () => {
   const router = useRouter();
-  // const { userData: loginUserInfo } = useUser();
   const { userDietInfo: loginUserInfo } = useGetUserDietInfo();
   const { logoutMutation } = useLogout();
   const [userData, setUserData] = useState<UserInfoType>();
@@ -149,9 +147,16 @@ const MyPageTemplate = () => {
           <TodayReportCard>
             <VStack spacing={"12px"} alignItems={"flex-start"}>
               <Text color={"#00CE84"}>오늘 하루 칼로리</Text>
-              <Text color={"#2F2F2F"}>아침 : {userDiet?.아침} Kcal</Text>
-              <Text color={"#2F2F2F"}>점심 : {userDiet?.점심} Kcal</Text>
-              <Text color={"#2F2F2F"}>저녁 : {userDiet?.저녁} Kcal</Text>
+              <Text color={"#2F2F2F"}>
+                아침 : {userDiet?.breakfast.menu} {userDiet?.breakfast.calories}{" "}
+                Kcal
+              </Text>
+              <Text color={"#2F2F2F"}>
+                점심 : {userDiet?.lunch.menu} {userDiet?.lunch.calories} Kcal
+              </Text>
+              <Text color={"#2F2F2F"}>
+                저녁 : {userDiet?.dinner.menu} {userDiet?.dinner.calories} Kcal
+              </Text>
             </VStack>
           </TodayReportCard>
 
