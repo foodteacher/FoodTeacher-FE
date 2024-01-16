@@ -43,7 +43,7 @@ const DietStateSection = (isLoading: { isLoading: boolean }) => {
   };
 
   function getStageName(step: number | undefined) {
-    if ((userDietInfo.step as number) >= 800) {
+    if ((step as number) >= 800) {
       return dietNickName.stage5;
     } else if ((step as number) >= 400) {
       return dietNickName.stage4;
