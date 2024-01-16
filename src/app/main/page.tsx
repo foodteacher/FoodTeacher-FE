@@ -13,6 +13,7 @@ import { useEffect, useState } from "react";
 import { UserInfoType } from "../../../component/template/SignupTemplate";
 import { useUser } from "../../../utils/hooks/useUser";
 import { instacne } from "../../../utils/api/AxiosSetting";
+import useGetUserDietInfo from "../../../utils/hooks/useGetUserDietInfo";
 
 export interface UserPostDietData {
   query: string;
@@ -22,7 +23,8 @@ export interface UserPostDietData {
 const Page = () => {
   const [chattingData, setChattingData] = useState<string>("");
   const [userDiet, setUserDiet] = useState<boolean>(false);
-  const { userData, isLoggedIn } = useUser();
+  const { isLoggedIn } = useUser();
+  const { userDietInfo } = useGetUserDietInfo();
 
   const router = useRouter();
 
@@ -73,6 +75,8 @@ const Page = () => {
     }
   };
 
+  console.log(userDietInfo);
+
   return (
     <>
       <Flex
@@ -87,7 +91,7 @@ const Page = () => {
         alignItems={"center"}
       >
         <VStack spacing={"20px"} w={"100%"} h={"100%"}>
-          {!userDiet ? (
+          {!userDiet && !userDietInfo?.recommended_exercise ? (
             <DietStateCard>
               <HStack
                 display={"flex"}
