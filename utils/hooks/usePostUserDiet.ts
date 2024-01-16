@@ -2,9 +2,11 @@ import { useMutation } from "@tanstack/react-query";
 import { postUserDiet } from "../api/AxiosSetting";
 import { UserPostDietData } from "@/app/main/page";
 import { useToast } from "@chakra-ui/react";
+import { useUser } from "./useUser";
 
 export const usePostUserDiet = () => {
   const toast = useToast();
+  const { userData } = useUser();
   const {
     data: userDietResponseData,
     mutateAsync: postUserDietMutation,
@@ -27,7 +29,7 @@ export const usePostUserDiet = () => {
     },
   });
 
-  if (userDietResponseData) {
+  if (userDietResponseData && !userData) {
     localStorage.setItem("userDiet", JSON.stringify(userDietResponseData));
   }
   return { userDietResponseData, postUserDietMutation, isLoading };

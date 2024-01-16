@@ -17,11 +17,14 @@ import mainStage4 from "../../utils/img/mainStage4.png";
 import mainStage5 from "../../utils/img/mainStage5.png";
 import { useRouter } from "next/navigation";
 import { DietResponse } from "../../utils/api/AxiosSetting";
+import useGetUserDietInfo from "../../utils/hooks/useGetUserDietInfo";
 
 const DietStateSection = (isLoading: { isLoading: boolean }) => {
   const [dietResponseData, setDietResponseData] = useState<
     DietResponse | undefined
   >();
+
+  const { userDietInfo } = useGetUserDietInfo();
 
   useEffect(() => {
     let userInfo: any = localStorage.getItem("userDiet");
