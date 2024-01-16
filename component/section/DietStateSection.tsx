@@ -17,11 +17,14 @@ import mainStage4 from "../../utils/img/mainStage4.png";
 import mainStage5 from "../../utils/img/mainStage5.png";
 import { useRouter } from "next/navigation";
 import { DietResponse } from "../../utils/api/AxiosSetting";
+import useGetUserDietInfo from "../../utils/hooks/useGetUserDietInfo";
 
 const DietStateSection = (isLoading: { isLoading: boolean }) => {
   const [dietResponseData, setDietResponseData] = useState<
     DietResponse | undefined
   >();
+
+  const { userDietInfo } = useGetUserDietInfo();
 
   useEffect(() => {
     let userInfo: any = localStorage.getItem("userDiet");
@@ -40,7 +43,7 @@ const DietStateSection = (isLoading: { isLoading: boolean }) => {
   };
 
   function getStageName(step: number | undefined) {
-    if ((step as number) >= 800) {
+    if ((userDietInfo.step as number) >= 800) {
       return dietNickName.stage5;
     } else if ((step as number) >= 400) {
       return dietNickName.stage4;
