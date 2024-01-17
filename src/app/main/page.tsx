@@ -30,7 +30,6 @@ const Page = () => {
 
   useEffect(() => {
     let userDietData: any = localStorage.getItem("userInfo");
-
     if (!isLoggedIn && !userDietData) {
       router.push("/");
     }
@@ -58,24 +57,13 @@ const Page = () => {
     const dietMsg = data.msg;
     reset();
     const userInfoString: string | null = localStorage.getItem("userInfo");
+    setChattingData(dietMsg);
     if (userInfoString !== null) {
       const userInfo: UserInfoType = JSON.parse(userInfoString);
-      // const userInfoData: UserPostDietData = {
-      //   query: data.msg,
-      //   name: userInfo.name,
-      //   age: userInfo.age,
-      //   weight: userInfo.weight,
-      //   height: userInfo.height,
-      //   target_weight: userInfo.target_weight,
-      //   gender: userInfo.gender,
-      // };
-      setChattingData(dietMsg);
     } else {
       await postUserDietMutation({ query: dietMsg });
     }
   };
-
-  console.log(userDietInfo);
 
   return (
     <>

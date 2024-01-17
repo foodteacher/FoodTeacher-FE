@@ -29,6 +29,7 @@ export interface DietResponse extends UserInfoType {
   운동필요시간: string;
   잔소리: string;
   advice: string;
+  excess_calories: number;
   recommended_exercise: string;
 }
 
