@@ -55,11 +55,12 @@ const ChattingRoom = ({
     <>
       <Flex
         w={"100%"}
-        h={"73%"}
-        bottom={"0"}
-        pos={"fixed"}
+        // bottom={"0"}
+        h={"100%"}
+        // maxH={"730px"}
+        minH={"470px"}
+        // pos={"fixed"}
         maxW={"420px"}
-        marginTop={"300px"}
         bgColor={"#F4F4F4"}
         borderRadius={"12px 12px 0 0"}
         flexDir={"column"}
@@ -90,12 +91,13 @@ const ChattingRoom = ({
         </VStack>
         <VStack
           w={"100%"}
+          // h={"50%"}
           alignItems={"flex-start"}
           spacing={"16px"}
           marginTop={"1vh"}
           paddingBottom={"15%"}
-          overflow={"hidden"}
-          overflowY={"auto"}
+          // overflow={"hidden"}
+          overflowY={"scroll"}
           css={{
             "&::-webkit-scrollbar": {
               width: "4px",
