@@ -55,7 +55,9 @@ const DietStateSection = (isLoading: { isLoading: boolean }) => {
       return dietNickName.stage1;
     }
   }
-  const [stageName, stageImg] = getStageName(dietResponseData?.초과칼로리);
+  const [stageName, stageImg] = getStageName(
+    userDietInfo?.excess_calories || dietResponseData?.초과칼로리
+  );
 
   const router = useRouter();
   return (
@@ -69,9 +71,15 @@ const DietStateSection = (isLoading: { isLoading: boolean }) => {
     >
       <Box w={"100%"}>
         <Text fontSize={"16px"} color={"#787878"}>
-          {(dietResponseData?.초과칼로리 as number) > 0
-            ? `${dietResponseData?.초과칼로리} Kcal 초과`
-            : `${-(dietResponseData?.초과칼로리 as number)} Kcal`}
+          {(userDietInfo?.excess_calories ||
+            (dietResponseData?.초과칼로리 as number)) > 0
+            ? `${
+                userDietInfo?.excess_calories || dietResponseData?.초과칼로리
+              } Kcal 초과`
+            : `${
+                userDietInfo?.excess_calories ||
+                -(dietResponseData?.초과칼로리 as number)
+              } Kcal`}
         </Text>
         <Heading fontSize={"22px"}>
           오늘{" "}
