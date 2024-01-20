@@ -60,9 +60,8 @@ const Page = () => {
     setChattingData(dietMsg);
     if (userInfoString !== null) {
       const userInfo: UserInfoType = JSON.parse(userInfoString);
-    } else {
-      await postUserDietMutation({ query: dietMsg });
     }
+    await postUserDietMutation({ query: dietMsg });
   };
 
   return (
