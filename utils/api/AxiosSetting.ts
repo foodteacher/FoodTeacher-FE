@@ -93,9 +93,30 @@ export const getUserDiet = async () => {
   return data;
 };
 
+export const postGuestDiet = async () => {
+  const res = await instacne.post("/gpt/guest/diet-exercise-advice");
+};
+
 export const postUserDiet = async (postDietData: UserPostDietData) => {
   const accessToken = localStorage.getItem("accessToken");
-  const res = await instacne.post(`/gpt/diet-exercise-advice`, postDietData, {
+  const url = accessToken
+    ? `/gpt/diet-exercise-advice`
+    : "/gpt/guest/diet-exercise-advice";
+
+  const guestInfo = JSON.parse(localStorage.getItem("userInfo") as string);
+
+  const guestDietData = {
+    query: postDietData.query,
+    height: guestInfo.height,
+    weight: guestInfo.weight,
+    age: guestInfo.age,
+    gender: guestInfo.gender,
+    target_weight: guestInfo.target_weight,
+  };
+
+  const dietData = accessToken ? postDietData : guestDietData;
+
+  const res = await instacne.post(url, dietData, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

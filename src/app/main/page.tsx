@@ -12,7 +12,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { UserInfoType } from "../../../component/template/SignupTemplate";
 import { useUser } from "../../../utils/hooks/useUser";
-import { instacne } from "../../../utils/api/AxiosSetting";
 import useGetUserDietInfo from "../../../utils/hooks/useGetUserDietInfo";
 
 export interface UserPostDietData {
@@ -60,9 +59,8 @@ const Page = () => {
     setChattingData(dietMsg);
     if (userInfoString !== null) {
       const userInfo: UserInfoType = JSON.parse(userInfoString);
-    } else {
-      await postUserDietMutation({ query: dietMsg });
     }
+    await postUserDietMutation({ query: dietMsg });
   };
 
   return (
