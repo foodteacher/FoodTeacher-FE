@@ -36,7 +36,7 @@ const ChattingInput = ({
         <InputGroup w={"100%"} bgColor={"#FFFFFF"} borderRadius={"12px"}>
           <Input
             {...register("msg", { required: true })}
-            maxLength={20}
+            maxLength={40}
             borderRadius={"12px"}
             border={"1px solid #D4D4D4"}
             placeholder="답변을 입력해주세요"

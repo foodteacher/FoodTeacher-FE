@@ -55,11 +55,8 @@ const ChattingRoom = ({
     <>
       <Flex
         w={"100%"}
-        // bottom={"0"}
         h={"100%"}
-        // maxH={"730px"}
         minH={"470px"}
-        // pos={"fixed"}
         maxW={"420px"}
         bgColor={"#F4F4F4"}
         borderRadius={"12px 12px 0 0"}
