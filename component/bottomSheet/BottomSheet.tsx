@@ -43,6 +43,7 @@ const TheBottomSheet = () => {
     <BottomSheet
       open
       ref={sheetRef}
+      blocking={false}
       snapPoints={({ maxHeight }) => [
         maxHeight * 0.8,
         maxHeight * 0.5,
