@@ -10,6 +10,7 @@ import { usePostUserDiet } from "../../utils/hooks/usePostUserDiet";
 import { UserInfoType } from "../template/SignupTemplate";
 import ChattingRoomTest from "../card/ChattingRoomTest";
 import HealthIcon from "../icon/HealthIcon";
+import ChattingInput from "../input/ChattingInput";
 
 const TheBottomSheet = () => {
   const sheetRef = useRef<BottomSheetRef>(null);
@@ -74,11 +75,15 @@ const TheBottomSheet = () => {
           </Text>
         </VStack>
       }
+      footer={
+        <ChattingInput
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          register={register}
+        />
+      }
     >
       <ChattingRoomTest
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        register={register}
         chattingData={chattingData}
         isLoading={isLoading}
         dietResponseData={dietResponseData}

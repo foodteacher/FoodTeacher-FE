@@ -27,18 +27,12 @@ export interface DietMsgType {
 }
 
 interface ChattingRoomPropsType {
-  handleSubmit: UseFormHandleSubmit<DietMsgType, undefined>;
-  onSubmit: SubmitHandler<DietMsgType>;
-  register: UseFormRegister<DietMsgType>;
   chattingData: string;
   isLoading: boolean;
   dietResponseData: DietResponse | undefined;
 }
 
 const ChattingRoomTest = ({
-  handleSubmit,
-  onSubmit,
-  register,
   isLoading,
   dietResponseData,
   chattingData,
@@ -107,11 +101,11 @@ const ChattingRoomTest = ({
           <Box ref={messageEndRef} />
         </VStack>
       </Flex>
-      <ChattingInput
+      {/* <ChattingInput
         handleSubmit={handleSubmit}
         onSubmit={onSubmit}
         register={register}
-      />
+      /> */}
     </>
   );
 };
