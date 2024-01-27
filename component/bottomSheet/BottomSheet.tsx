@@ -1,6 +1,6 @@
 "use client";
 
-import { Divider, Flex, HStack, Heading, Text, VStack } from "@chakra-ui/react";
+import { HStack, Heading, Text, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
 import "./BottomSheetStyle.css";
