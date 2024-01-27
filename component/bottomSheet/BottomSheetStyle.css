@@ -73,7 +73,7 @@
   padding-top: calc(20px + env(safe-area-inset-top));
   padding-bottom: 8px;
   border-radius: 12px 12px 0 0;
-  box-shadow: 0px -4px 2px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px -4px 2px 0px rgba(0, 0, 0, 0.03);
 }
 [data-rsbs-header]:before {
   position: absolute;

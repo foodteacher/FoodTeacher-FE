@@ -1,6 +1,6 @@
 "use client";
 
-import { Divider, Flex, HStack, Heading, Text, VStack } from "@chakra-ui/react";
+import { HStack, Heading, Text, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
 import "./BottomSheetStyle.css";
@@ -10,6 +10,7 @@ import { usePostUserDiet } from "../../utils/hooks/usePostUserDiet";
 import { UserInfoType } from "../template/SignupTemplate";
 import ChattingRoomTest from "../card/ChattingRoomTest";
 import HealthIcon from "../icon/HealthIcon";
+import ChattingInput from "../input/ChattingInput";
 
 const TheBottomSheet = () => {
   const sheetRef = useRef<BottomSheetRef>(null);
@@ -74,11 +75,15 @@ const TheBottomSheet = () => {
           </Text>
         </VStack>
       }
+      footer={
+        <ChattingInput
+          handleSubmit={handleSubmit}
+          onSubmit={onSubmit}
+          register={register}
+        />
+      }
     >
       <ChattingRoomTest
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        register={register}
         chattingData={chattingData}
         isLoading={isLoading}
         dietResponseData={dietResponseData}
