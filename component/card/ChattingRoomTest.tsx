@@ -56,6 +56,7 @@ const ChattingRoomTest = ({
       <Flex w={"100%"} h={"100%"} maxW={"420px"} flexDir={"column"}>
         <VStack
           w={"100%"}
+          h={"100%"}
           alignItems={"flex-start"}
           spacing={"16px"}
           marginTop={"1vh"}
