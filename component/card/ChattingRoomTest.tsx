@@ -67,18 +67,6 @@ const ChattingRoomTest = ({
           spacing={"16px"}
           marginTop={"1vh"}
           paddingBottom={"15%"}
-          overflowY={"scroll"}
-          css={{
-            "&::-webkit-scrollbar": {
-              width: "4px",
-            },
-            "&::-webkit-scrollbar-track": {
-              width: "6px",
-            },
-            "&::-webkit-scrollbar-thumb": {
-              borderRadius: "24px",
-            },
-          }}
         >
           <ChattingMsgCard>반갑습니다 00님</ChattingMsgCard>
           <ChattingMsgCard>

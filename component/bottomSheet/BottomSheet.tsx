@@ -40,52 +40,49 @@ const TheBottomSheet = () => {
   };
 
   return (
-    <Flex>
-      <BottomSheet
-        open
-        ref={sheetRef}
-        snapPoints={({ maxHeight }) => [
-          maxHeight * 0.8,
-          maxHeight * 0.5,
-          maxHeight * 0.2,
-        ]}
-        header={
-          <VStack
-            textAlign={"center"}
-            w={"100%"}
-            padding={"13px 22px 0px 22px"}
-            spacing={"0.5px"}
-            zIndex={100}
-          >
-            <HStack spacing={"2px"}>
-              <HealthIcon />
-              <Heading
-                as={"h1"}
-                color={"#000000"}
-                fontSize={"20px"}
-                fontWeight={"medium"}
-              >
-                식선생
-              </Heading>
-            </HStack>
+    <BottomSheet
+      open
+      ref={sheetRef}
+      snapPoints={({ maxHeight }) => [
+        maxHeight * 0.8,
+        maxHeight * 0.5,
+        maxHeight * 0.2,
+      ]}
+      header={
+        <VStack
+          textAlign={"center"}
+          w={"100%"}
+          padding={"13px 22px 0px 22px"}
+          spacing={"0.5px"}
+          zIndex={100}
+        >
+          <HStack spacing={"2px"}>
+            <HealthIcon />
+            <Heading
+              as={"h1"}
+              color={"#000000"}
+              fontSize={"20px"}
+              fontWeight={"medium"}
+            >
+              식선생
+            </Heading>
+          </HStack>
 
-            <Text as={"h2"} color={"#787878"} fontSize={"12px"} lineHeight={2}>
-              다이어트는 의지의 차이입니다.
-            </Text>
-            {/* <Divider padding={"4.5px 0"} color={"#ECECEC"} /> */}
-          </VStack>
-        }
-      >
-        <ChattingRoomTest
-          handleSubmit={handleSubmit}
-          onSubmit={onSubmit}
-          register={register}
-          chattingData={chattingData}
-          isLoading={isLoading}
-          dietResponseData={dietResponseData}
-        />
-      </BottomSheet>
-    </Flex>
+          <Text as={"h2"} color={"#787878"} fontSize={"12px"} lineHeight={2}>
+            다이어트는 의지의 차이입니다.
+          </Text>
+        </VStack>
+      }
+    >
+      <ChattingRoomTest
+        handleSubmit={handleSubmit}
+        onSubmit={onSubmit}
+        register={register}
+        chattingData={chattingData}
+        isLoading={isLoading}
+        dietResponseData={dietResponseData}
+      />
+    </BottomSheet>
   );
 };
 

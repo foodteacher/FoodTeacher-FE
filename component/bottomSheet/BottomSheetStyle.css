@@ -17,15 +17,18 @@
 }
 [data-rsbs-overlay],
 [data-rsbs-root]:after {
-  max-width: var(--rsbs-max-w);
+  margin: 0 auto;
+  max-width: 420px;
   margin-left: var(--rsbs-ml);
   margin-right: var(--rsbs-mr);
 }
+
 [data-rsbs-overlay],
 [data-rsbs-backdrop],
 [data-rsbs-root]:after {
   z-index: 3;
   overscroll-behavior: none;
+  margin: 0 auto;
   touch-action: none;
   position: fixed;
   right: 0;
