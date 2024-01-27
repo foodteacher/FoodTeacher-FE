@@ -24,7 +24,6 @@ const ChattingInput = ({
       <Flex
         as={"form"}
         onSubmit={handleSubmit(onSubmit)}
-        position={"fixed"}
         bottom={"0px"}
         bgColor={"#F4F4F4"}
         w={"100%"}
