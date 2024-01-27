@@ -53,14 +53,7 @@ const ChattingRoomTest = ({
 
   return (
     <>
-      <Flex
-        w={"100%"}
-        h={"100%"}
-        maxW={"420px"}
-        bgColor={"#F4F4F4"}
-        borderRadius={"12px 12px 0 0"}
-        flexDir={"column"}
-      >
+      <Flex w={"100%"} h={"100%"} maxW={"420px"} flexDir={"column"}>
         <VStack
           w={"100%"}
           alignItems={"flex-start"}
