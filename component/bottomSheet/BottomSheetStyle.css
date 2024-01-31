@@ -125,6 +125,7 @@
   overflow: hidden;
   z-index: 1;
   padding-bottom: calc(16px + env(safe-area-inset-bottom));
+  background-color: #f4f4f4;
 }
 
 [data-rsbs-is-dismissable="true"],
