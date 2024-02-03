@@ -43,7 +43,7 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} build failed.'
+        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }}-2 build failed.'
 
     - name: Update docker image name
       run: |
@@ -61,5 +61,5 @@ jobs:
         DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
       uses: Ilshidur/action-discord@master
       with:
-        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }} has been deployed.'
+        args: 'The project {{ EVENT_PAYLOAD.repository.full_name }}-2 has been deployed.'
   
