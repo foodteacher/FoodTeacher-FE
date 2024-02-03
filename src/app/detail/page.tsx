@@ -63,7 +63,10 @@ const Page = () => {
 
         <VStack w={"100%"} spacing={"16px"}>
           <CharacterImgCard
-            userDiet={userDietInfo?.excess_calories || userDiet?.초과칼로리}
+            excessCalories={
+              (userDietInfo?.excess_calories as number) ||
+              (userDiet?.초과칼로리 as number)
+            }
           />
           <TodayReportCard bgColor={"#000000"}>
             <VStack alignItems={"flex-start"} spacing={"5px"}>

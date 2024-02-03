@@ -1,9 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
-import { getUserDiet } from "../api/AxiosSetting";
+import { DietResponse, getUserDiet } from "../api/AxiosSetting";
 
-const useGetUserDietInfo = () => {
-  const { data, isLoading } = useQuery({
+interface UseGetUserDietInfoType {
+  userDietInfo: DietResponse | undefined;
+  isLoading: boolean;
+}
+
+const useGetUserDietInfo = (): UseGetUserDietInfoType => {
+  const { data, isLoading } = useQuery<DietResponse>({
     queryKey: ["userDiet"],
     queryFn: () => getUserDiet(),
   });
