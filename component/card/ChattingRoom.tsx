@@ -27,7 +27,7 @@ export interface DietMsgType {
 }
 
 interface ChattingRoomPropsType {
-  handleSubmit: UseFormHandleSubmit<DietMsgType, undefined>;
+  handleSubmit: UseFormHandleSubmit<DietMsgType>;
   onSubmit: SubmitHandler<DietMsgType>;
   register: UseFormRegister<DietMsgType>;
   chattingData: string;
