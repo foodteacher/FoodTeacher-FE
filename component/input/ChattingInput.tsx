@@ -9,7 +9,7 @@ import {
 } from "react-hook-form";
 
 interface ChattingInputPropsType {
-  handleSubmit: UseFormHandleSubmit<DietMsgType, undefined>;
+  handleSubmit: UseFormHandleSubmit<DietMsgType>;
   onSubmit: SubmitHandler<DietMsgType>;
   register: UseFormRegister<DietMsgType>;
 }
