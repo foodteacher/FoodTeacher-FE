@@ -12,6 +12,8 @@
   outline: none;
 }
 [data-rsbs-is-blocking="false"] [data-rsbs-overlay] {
+  background-color: #d9d9d9;
+
   box-shadow: 0 -5px 60px 0 rgba(38, 89, 115, 0.11),
     0 -1px 0 rgba(38, 89, 115, 0.05);
 }
@@ -21,6 +23,7 @@
   margin: 0 auto;
   max-width: 420px;
   margin-left: var(--rsbs-ml);
+
   margin-right: var(--rsbs-mr);
 }
 
@@ -55,7 +58,7 @@
 [data-rsbs-root]:after {
   content: "";
   pointer-events: none;
-  background: var(--rsbs-bg);
+  background-color: white;
   height: 1px;
   transform-origin: bottom;
   transform: scale3d(1, var(--rsbs-antigap-scale-y), 1);
@@ -65,7 +68,6 @@
 [data-rsbs-header] {
   flex-shrink: 0;
   cursor: ns-resize;
-  padding: 16px;
 }
 [data-rsbs-header] {
   text-align: center;
@@ -127,8 +129,9 @@
     0 2px 0 var(--rsbs-bg);
   overflow: hidden;
   z-index: 1;
-  padding-bottom: calc(16px + env(safe-area-inset-bottom));
-  background-color: #f4f4f4;
+  padding-top: 8px;
+  /* padding-bottom: calc(16px + env(safe-area-inset-bottom)); */
+  background-color: white;
 }
 
 [data-rsbs-is-dismissable="true"],

@@ -4,7 +4,7 @@ import { Flex, HStack, Text, VStack } from "@chakra-ui/react";
 
 const MainPageTemplate = () => {
   return (
-    <Flex flexDir={"column"} w={"100%"} gap={"16px"}>
+    <Flex flexDir={"column"} w={"100%"} gap={"16px"} padding={"0 15px"}>
       <TodayReportCard bgColor={"#f4f4f4"}>
         <VStack spacing={"12px"} alignItems={"flex-start"}>
           <Text color={"#00CE84"}>기본 정보</Text>
