@@ -49,7 +49,6 @@ export default function RootLayout({
         <GoogleAnalytics />
         <QueryLayout>
           <ChakraLayout>
-            <TheMainHeader />
             <ResponsiveLayout>{children}</ResponsiveLayout>
           </ChakraLayout>
         </QueryLayout>
