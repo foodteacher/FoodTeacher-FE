@@ -13,6 +13,7 @@ const ResponsiveLayout = ({ children }: { children: ReactNode }) => {
       height={"100vh"}
       alignItems={"center"}
       bgColor={"transparent"}
+      marginTop={"56px"}
     >
       {children}
     </Flex>

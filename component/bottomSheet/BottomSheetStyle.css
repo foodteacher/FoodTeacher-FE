@@ -17,6 +17,7 @@
 }
 [data-rsbs-overlay],
 [data-rsbs-root]:after {
+  z-index: 100;
   margin: 0 auto;
   max-width: 420px;
   margin-left: var(--rsbs-ml);
@@ -42,7 +43,7 @@
   top: -60px;
   bottom: -60px;
   background-color: var(--rsbs-backdrop-bg);
-  will-change: opacity;
+  /* will-change: opacity; */
   cursor: pointer;
   opacity: 1;
 }
@@ -74,6 +75,7 @@
   padding-bottom: 8px;
   border-radius: 12px 12px 0 0;
   box-shadow: 0px -4px 2px 0px rgba(0, 0, 0, 0.03);
+  background-color: white;
 }
 [data-rsbs-header]:before {
   position: absolute;
@@ -97,6 +99,7 @@
   padding-top: calc(12px + env(safe-area-inset-top));
 }
 [data-rsbs-scroll] {
+  background-color: #f4f4f4;
   flex-shrink: 1;
   flex-grow: 1;
   -webkit-tap-highlight-color: revert;
