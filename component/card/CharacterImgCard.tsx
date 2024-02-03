@@ -7,12 +7,8 @@ import stage4 from "../../utils/img/stage4.png";
 import stage5 from "../../utils/img/stage5.png";
 import { DietResponse } from "../../utils/api/AxiosSetting";
 
-const CharacterImgCard = ({
-  userDiet,
-}: {
-  userDiet: DietResponse | undefined;
-}) => {
-  function getStageName(step: number | undefined) {
+const CharacterImgCard = ({ exceesCalories }: { exceesCalories: number }) => {
+  const getStageName = (step: number | undefined) => {
     if ((step as number) >= 800) {
       return stage5;
     } else if ((step as number) >= 400) {
@@ -24,8 +20,8 @@ const CharacterImgCard = ({
     } else {
       return stage1;
     }
-  }
-  const characterImg = getStageName(userDiet?.초과칼로리);
+  };
+  const characterImg = getStageName(exceesCalories);
   return (
     <Image
       src={characterImg}

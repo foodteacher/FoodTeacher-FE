@@ -12,18 +12,22 @@ import useGetUserDietInfo from "../../../utils/hooks/useGetUserDietInfo";
 
 const Page = () => {
   const router = useRouter();
+  const { userDietInfo } = useGetUserDietInfo();
   const [userData, setUserData] = useState<UserInfoType>();
   const [userDiet, setUserDiet] = useState<DietResponse>();
   const { userDietInfo: loginUserInfo } = useGetUserDietInfo();
 
   useLayoutEffect(() => {
-    let userInfo: any = localStorage.getItem("userInfo");
-    const userInfoData: UserInfoType = JSON.parse(userInfo);
-    setUserData(userInfoData);
-    let userDiet: any = localStorage.getItem("userDiet");
-    const userDietData: DietResponse = JSON.parse(userDiet);
-    setUserDiet(userDietData);
-  }, []);
+    const accessToken = localStorage.getItem("accessToken");
+    if (!accessToken) {
+      let userInfo: any = localStorage.getItem("userInfo");
+      const userInfoData: UserInfoType = JSON.parse(userInfo);
+      setUserData(userInfoData);
+      let userDiet: any = localStorage.getItem("userDiet");
+      const userDietData: DietResponse = JSON.parse(userDiet);
+      setUserDiet(userDietData);
+    }
+  }, [userDietInfo]);
 
   return (
     <>
@@ -58,7 +62,9 @@ const Page = () => {
         </TheHeader>
 
         <VStack w={"100%"} spacing={"16px"}>
-          <CharacterImgCard userDiet={userDiet} />
+          <CharacterImgCard
+            userDiet={userDietInfo?.excess_calories || userDiet?.초과칼로리}
+          />
           <TodayReportCard bgColor={"#000000"}>
             <VStack alignItems={"flex-start"} spacing={"5px"}>
               <Text color={"#838383"}>
