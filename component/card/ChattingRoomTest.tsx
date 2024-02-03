@@ -13,11 +13,7 @@ import DietChattingMsgCart from "./DietChattingMsgCard";
 import ChattingInput from "../input/ChattingInput";
 import HealthIcon from "../icon/HealthIcon";
 import UserChattingMsgCard from "./UserChattingMsgCard";
-import {
-  SubmitHandler,
-  UseFormHandleSubmit,
-  UseFormRegister,
-} from "react-hook-form";
+import {} from "react-hook-form";
 import { DietResponse } from "../../utils/api/AxiosSetting";
 import RunningIcon from "../icon/RunningIcon";
 import { useEffect, useRef } from "react";
@@ -47,65 +43,57 @@ const ChattingRoomTest = ({
 
   return (
     <>
-      <Flex w={"100%"} h={"100%"} maxW={"420px"} flexDir={"column"}>
-        <VStack
-          w={"100%"}
-          h={"100%"}
-          alignItems={"flex-start"}
-          spacing={"16px"}
-          marginTop={"1vh"}
-          paddingBottom={"15%"}
-        >
-          <ChattingMsgCard>반갑습니다 00님</ChattingMsgCard>
-          <ChattingMsgCard>
-            자, 오늘은 어떤 음식을 드셨나요?
-            <br />
-            아침, 점심, 저녁 메뉴를 알려주세요
-            <Text as={"h2"} color={"#787878"} fontSize={"16px"} lineHeight={2}>
-              {"ex) 아침은 00 점심은 00 저녁은 00을 먹었어"}
-            </Text>
-          </ChattingMsgCard>
-          {chattingData && (
-            <UserChattingMsgCard>{chattingData}</UserChattingMsgCard>
-          )}
+      <VStack
+        w={"100%"}
+        h={"100%"}
+        alignItems={"flex-start"}
+        spacing={"16px"}
+        marginTop={"16px"}
+      >
+        <ChattingMsgCard>반갑습니다 00님</ChattingMsgCard>
+        <ChattingMsgCard>
+          자, 오늘은 어떤 음식을 드셨나요?
+          <br />
+          아침, 점심, 저녁 메뉴를 알려주세요
+          <Text as={"h2"} color={"#787878"} fontSize={"16px"} lineHeight={2}>
+            {"ex) 아침은 00 점심은 00 저녁은 00을 먹었어"}
+          </Text>
+        </ChattingMsgCard>
+        {chattingData && (
+          <UserChattingMsgCard>{chattingData}</UserChattingMsgCard>
+        )}
 
-          <DietChattingMsgCart
-            isLoading={isLoading}
-            dietResponseData={dietResponseData}
-          />
+        <DietChattingMsgCart
+          isLoading={isLoading}
+          dietResponseData={dietResponseData}
+        />
 
-          {dietResponseData && (
-            <>
-              <ChattingMsgCard>
-                <HStack spacing={"5px"}>
-                  {!dietResponseData.운동필요시간.includes("안 해도") ? (
-                    <>
-                      <RunningIcon />
-                      <Text as="a" color={"#00C27C"} fontWeight={"semibold"}>
-                        {dietResponseData.운동필요시간}
-                      </Text>
-                      이상 꼭 하셔야해요.
-                    </>
-                  ) : (
-                    <>
-                      <Text as="a" color={"#00C27C"} fontWeight={"semibold"}>
-                        운동을 {dietResponseData.운동필요시간}
-                      </Text>
-                    </>
-                  )}
-                </HStack>
-              </ChattingMsgCard>
-              <ChattingMsgCard>{dietResponseData.잔소리}</ChattingMsgCard>
-            </>
-          )}
-          <Box ref={messageEndRef} />
-        </VStack>
-      </Flex>
-      {/* <ChattingInput
-        handleSubmit={handleSubmit}
-        onSubmit={onSubmit}
-        register={register}
-      /> */}
+        {dietResponseData && (
+          <>
+            <ChattingMsgCard>
+              <HStack spacing={"5px"}>
+                {!dietResponseData.운동필요시간.includes("안 해도") ? (
+                  <>
+                    <RunningIcon />
+                    <Text as="a" color={"#00C27C"} fontWeight={"semibold"}>
+                      {dietResponseData.운동필요시간}
+                    </Text>
+                    이상 꼭 하셔야해요.
+                  </>
+                ) : (
+                  <>
+                    <Text as="a" color={"#00C27C"} fontWeight={"semibold"}>
+                      운동을 {dietResponseData.운동필요시간}
+                    </Text>
+                  </>
+                )}
+              </HStack>
+            </ChattingMsgCard>
+            <ChattingMsgCard>{dietResponseData.잔소리}</ChattingMsgCard>
+          </>
+        )}
+        <Box ref={messageEndRef} />
+      </VStack>
     </>
   );
 };

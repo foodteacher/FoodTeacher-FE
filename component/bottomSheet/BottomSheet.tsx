@@ -41,54 +41,55 @@ const TheBottomSheet = () => {
   };
 
   return (
-    <BottomSheet
-      open
-      ref={sheetRef}
-      blocking={false}
-      snapPoints={({ maxHeight }) => [
-        maxHeight * 0.8,
-        maxHeight * 0.5,
-        maxHeight * 0.2,
-      ]}
-      header={
-        <VStack
-          textAlign={"center"}
-          w={"100%"}
-          padding={"13px 22px 0px 22px"}
-          spacing={"0.5px"}
-          zIndex={100}
-        >
-          <HStack spacing={"2px"}>
-            <HealthIcon />
-            <Heading
-              as={"h1"}
-              color={"#000000"}
-              fontSize={"20px"}
-              fontWeight={"medium"}
-            >
-              식선생
-            </Heading>
-          </HStack>
+    <>
+      <BottomSheet
+        open
+        ref={sheetRef}
+        blocking={false}
+        snapPoints={({ maxHeight }) => [
+          maxHeight * 0.8,
+          maxHeight * 0.5,
+          maxHeight * 0.1,
+        ]}
+        header={
+          <VStack
+            textAlign={"center"}
+            w={"100%"}
+            padding={"13px 22px 0px 22px"}
+            spacing={"0.5px"}
+          >
+            <HStack spacing={"2px"}>
+              <HealthIcon />
+              <Heading
+                as={"h1"}
+                color={"#000000"}
+                fontSize={"20px"}
+                fontWeight={"medium"}
+              >
+                식선생
+              </Heading>
+            </HStack>
 
-          <Text as={"h2"} color={"#787878"} fontSize={"12px"} lineHeight={2}>
-            다이어트는 의지의 차이입니다.
-          </Text>
-        </VStack>
-      }
-      footer={
-        <ChattingInput
-          handleSubmit={handleSubmit}
-          onSubmit={onSubmit}
-          register={register}
+            <Text as={"h2"} color={"#787878"} fontSize={"12px"} lineHeight={2}>
+              다이어트는 의지의 차이입니다.
+            </Text>
+          </VStack>
+        }
+        footer={
+          <ChattingInput
+            handleSubmit={handleSubmit}
+            onSubmit={onSubmit}
+            register={register}
+          />
+        }
+      >
+        <ChattingRoomTest
+          chattingData={chattingData}
+          isLoading={isLoading}
+          dietResponseData={dietResponseData}
         />
-      }
-    >
-      <ChattingRoomTest
-        chattingData={chattingData}
-        isLoading={isLoading}
-        dietResponseData={dietResponseData}
-      />
-    </BottomSheet>
+      </BottomSheet>
+    </>
   );
 };
 
