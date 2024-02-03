@@ -68,7 +68,7 @@ const RunningIcon = () => {
             fill="#FFC538"
             fillRule="evenodd"
             d="M12.777 6.137a1.387 1.387 0 0 0-1.404-.215l-2.015.82-.65-1.597 2.015-.82a3.112 3.112 0 0 1 3.15.48l2.248 1.88a.488.488 0 0 1 .064.684l-.477.58a.488.488 0 0 1-.69.064l-2.24-1.876Z"
-            clip-rule="evenodd"
+            clipRule="evenodd"
           />
         </g>
         <path
@@ -225,7 +225,7 @@ const RunningIcon = () => {
           fill="#87014D"
           fillRule="evenodd"
           d="M6.58 3.661a.094.094 0 0 1 0 .132.929.929 0 0 1-.52.228.094.094 0 0 1-.019-.186.742.742 0 0 0 .407-.176.094.094 0 0 1 .067-.026c.024 0 .048.01.065.028Z"
-          clip-rule="evenodd"
+          clipRule="evenodd"
         />
         <path
           fill="#fff"
@@ -246,7 +246,7 @@ const RunningIcon = () => {
         <g filter="url(#Z)">
           <path
             stroke="#BC5F4E"
-            stroke-linecap="round"
+            strokeLinecap="round"
             strokeWidth=".3"
             d="M6.224 1.95c.096 0 .307 0 .462.111"
           />
@@ -745,7 +745,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -771,7 +771,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -797,7 +797,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -823,7 +823,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -843,7 +843,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -869,7 +869,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -895,7 +895,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
@@ -934,7 +934,7 @@ const RunningIcon = () => {
             colorInterpolationFilters="sRGB"
             filterUnits="userSpaceOnUse"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               in="SourceGraphic"
               in2="BackgroundImageFix"
