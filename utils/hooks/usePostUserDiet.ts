@@ -32,5 +32,6 @@ export const usePostUserDiet = () => {
   if (userDietResponseData && !userData) {
     localStorage.setItem("userDiet", JSON.stringify(userDietResponseData));
   }
+
   return { userDietResponseData, postUserDietMutation, isLoading };
 };
