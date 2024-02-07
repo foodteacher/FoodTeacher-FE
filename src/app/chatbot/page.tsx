@@ -11,6 +11,7 @@ const page = () => {
   return (
     <>
       <Chatbot
+        // @ts-ignore
         config={config}
         messageParser={MessageParser}
         actionProvider={ActionProvider}
