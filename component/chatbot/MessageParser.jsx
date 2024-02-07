@@ -1,8 +1,11 @@
 import React from "react";
+import { createChatBotMessage } from "react-chatbot-kit";
 
-const MessageParser = ({ children, actions }) => {
+const MessageParser = ({ children, actions, setState }) => {
+  // const { checker } = children.props.state;
   const parse = (message) => {
-    console.log(message);
+    // console.log(checker);
+    console.log(children.props);
   };
 
   return (
@@ -10,7 +13,7 @@ const MessageParser = ({ children, actions }) => {
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           parse: parse,
-          actions: {},
+          actions,
         });
       })}
     </div>

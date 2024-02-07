@@ -1,15 +1,27 @@
 "use client";
 
 import React from "react";
-import { Button, ButtonGroup, Card, CardBody, VStack } from "@chakra-ui/react";
+import { Button, Card, CardBody, VStack } from "@chakra-ui/react";
 
-const MenuWidget = () => {
+const MenuWidget = (props: any) => {
+  const selectCaloryCal = () => {
+    props.actions.initialAction();
+  };
+
+  const selectTodayCal = () => {
+    props.actions.afterNameMessage();
+  };
+
   return (
     <Card>
       <CardBody>
         <VStack>
-          <Button w={"100%"}>123</Button>
-          <Button w={"100%"}>123214</Button>
+          <Button onClick={selectCaloryCal} w={"100%"}>
+            칼로리 계산
+          </Button>
+          <Button w={"100%"} onClick={selectTodayCal}>
+            오늘의 영양 정보
+          </Button>
         </VStack>
       </CardBody>
     </Card>

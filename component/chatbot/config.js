@@ -5,16 +5,15 @@ import MenuWidget from "./widget/MenuWidget";
 const config = {
   initialMessages: [
     createChatBotMessage(`안녕하세요 메뉴를 선택해주세요!`, {
-      widget: "menuWidget",
+      widget: "overview",
     }),
   ],
   customComponents: {
     headers: () => false,
-    botAvatar: (props) => <div />,
   },
   widgets: [
     {
-      widgetName: "menuWidget",
+      widgetName: "overview",
       widgetFunc: (props) => <MenuWidget {...props} />,
     },
   ],
