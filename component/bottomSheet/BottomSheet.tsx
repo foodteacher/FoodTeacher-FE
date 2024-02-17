@@ -3,14 +3,19 @@
 import { Box, HStack, Heading, Text, VStack } from "@chakra-ui/react";
 import { useRef, useState } from "react";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
-import "./BottomSheetStyle.css";
 import { DietMsgType } from "../card/ChattingRoom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { usePostUserDiet } from "../../utils/hooks/usePostUserDiet";
 import { UserInfoType } from "../template/SignupTemplate";
-import ChattingRoomTest from "../card/ChattingRoomTest";
 import HealthIcon from "../icon/HealthIcon";
 import ChattingInput from "../input/ChattingInput";
+import Chatbot from "react-chatbot-kit";
+import config from "../chatbot/config";
+import MessageParser from "../chatbot/MessageParser";
+import ActionProvider from "../chatbot/ActionProvider";
+import "./BottomSheetStyle.css";
+import "react-chatbot-kit/build/main.css";
+import "./chatbot.css";
 
 const TheBottomSheet = () => {
   const sheetRef = useRef<BottomSheetRef>(null);
@@ -75,18 +80,19 @@ const TheBottomSheet = () => {
             </Text>
           </VStack>
         }
-        footer={
-          <ChattingInput
-            handleSubmit={handleSubmit}
-            onSubmit={onSubmit}
-            register={register}
-          />
-        }
+        // footer={
+        //   <ChattingInput
+        //     handleSubmit={handleSubmit}
+        //     onSubmit={onSubmit}
+        //     register={register}
+        //   />
+        // }
       >
-        <ChattingRoomTest
-          chattingData={chattingData}
-          isLoading={isLoading}
-          dietResponseData={dietResponseData}
+        <Chatbot
+          // @ts-ignore
+          config={config}
+          messageParser={MessageParser}
+          actionProvider={ActionProvider}
         />
       </BottomSheet>
     </>
