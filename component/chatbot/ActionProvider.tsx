@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { usePostUserDiet } from "../../utils/hooks/usePostUserDiet";
 import { postUserDiet } from "../../utils/api/AxiosSetting";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
@@ -11,7 +10,8 @@ const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
 
   const caloryCalAction = () => {
     const message = createChatBotMessage(
-      "칼로리 계산은 먹은 음식들의 칼로리를 계산해주는 기능이에요. 무엇을 얼마나 먹었는지 자세히 알려주실수록 정확한 정보를 드릴 수 있어요 :) \n 예시 : 밥 한공기, 닭가슴살 200g 을 먹었어."
+      "칼로리 계산은 먹은 음식들의 칼로리를 계산해주는 기능이에요. 무엇을 얼마나 먹었는지 자세히 알려주실수록 정확한 정보를 드릴 수 있어요 :) \n 예시 : 밥 한공기, 닭가슴살 200g 을 먹었어.",
+      {}
     );
     updateState(message, "calorie");
   };
@@ -27,34 +27,39 @@ const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
     // });
     const getDiet = async () => {
       setIsLoading(true);
-      const resData = await postUserDiet(params);
-      return resData?.잔소리;
+      try {
+        const resData = await postUserDiet(params);
+        return resData?.잔소리;
+      } catch {
+        return "다시 시도해주세요!";
+      }
     };
 
-    const message = createChatBotMessage(getDiet());
+    const message = createChatBotMessage(getDiet(), {
+      widget: "overview",
+    });
 
     updateState(message, "end");
     // updateState(message, "end");
   };
 
   const calculateNutrient = () => {
-    const message = createChatBotMessage("아침");
+    const message = createChatBotMessage("아침", {});
     updateState(message, "morning");
   };
 
   const afterMorningMessage = () => {
-    const message = createChatBotMessage("점심");
+    const message = createChatBotMessage("점심", {});
     updateState(message, "lunch");
   };
 
   const afterLunchMessage = () => {
-    const message = createChatBotMessage("저녁");
+    const message = createChatBotMessage("저녁", {});
     updateState(message, "dinner");
   };
 
   const afterDinnerMessage = async () => {
-    console.log(children);
-    const message = createChatBotMessage(<div>Loading...</div>);
+    const message = createChatBotMessage("loading", {});
 
     updateState(message, "end");
   };
