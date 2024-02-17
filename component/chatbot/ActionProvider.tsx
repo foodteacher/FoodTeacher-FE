@@ -1,11 +1,13 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePostUserDiet } from "../../utils/hooks/usePostUserDiet";
 import { postUserDiet } from "../../utils/api/AxiosSetting";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
-  const { postUserDietMutation, userDietResponseData, isLoading } =
-    usePostUserDiet();
+  // const { postUserDietMutation, userDietResponseData, isLoading } =
+  //   usePostUserDiet();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const caloryCalAction = () => {
     const message = createChatBotMessage(
@@ -17,10 +19,22 @@ const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
   const caloryCalActionReply = async (reply: string) => {
     const params = { query: reply };
 
-    const resData = await postUserDiet(params);
-    const message = createChatBotMessage(resData?.잔소리);
+    // const resData = await postUserDiet(params);
+    // const message: string = createChatBotMessage(resData?.잔소리, {
+    //   widget: "overview",
+    //   terminateLoading: true,
+    //   withAvatar: true,
+    // });
+    const getDiet = async () => {
+      setIsLoading(true);
+      const resData = await postUserDiet(params);
+      return resData?.잔소리;
+    };
+
+    const message = createChatBotMessage(getDiet());
 
     updateState(message, "end");
+    // updateState(message, "end");
   };
 
   const calculateNutrient = () => {
@@ -45,7 +59,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
     updateState(message, "end");
   };
 
-  const updateState = (message: string, checker = "") => {
+  const updateState = (message: any, checker = "") => {
     setState((prev: any) => ({
       ...prev,
       messages: [...prev.messages, message],
