@@ -13,7 +13,7 @@ const MenuWidget = (props: any) => {
   };
 
   return (
-    <Card>
+    <Card margin={"1.2rem"}>
       <CardBody>
         <VStack>
           <Button onClick={selectCaloryCalculate} w={"100%"}>

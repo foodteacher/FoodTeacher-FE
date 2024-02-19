@@ -1,13 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
-import { usePostUserDiet } from "../../utils/hooks/usePostUserDiet";
 
 const MessageParser = ({ children, actions }: any) => {
-  const { postUserDietMutation, userDietResponseData, isLoading } =
-    usePostUserDiet();
-
-  useEffect(() => {}, [userDietResponseData]);
-
   const { checker } = children.props.state;
 
   const parse = async (message: string) => {
