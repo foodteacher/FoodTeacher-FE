@@ -14,7 +14,6 @@ import "./chatbot.css";
 
 const TheBottomSheet = () => {
   const sheetRef = useRef<BottomSheetRef>(null);
-  const [chattingData, setChattingData] = useState<string>("");
 
   return (
     <>

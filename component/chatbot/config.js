@@ -1,6 +1,7 @@
 "use client";
 import { createChatBotMessage } from "react-chatbot-kit";
 import MenuWidget from "./widget/MenuWidget";
+import DietChattingMsgCart from "../card/DietChattingMsgCard";
 
 const config = {
   initialMessages: [
@@ -15,6 +16,10 @@ const config = {
     {
       widgetName: "overview",
       widgetFunc: (props) => <MenuWidget {...props} />,
+    },
+    {
+      widgetName: "dietResponse",
+      widgetFunc: (props) => <DietChattingMsgCart {...props} />,
     },
   ],
 };
