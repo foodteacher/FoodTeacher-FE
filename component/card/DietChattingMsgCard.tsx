@@ -26,7 +26,7 @@ const DietChattingMsgCart = (props: any) => {
 
   const [dietResponseData, setDietResponseData] = useState(dietChecker);
 
-  console.log("dietChatting :", props, dietResponseData);
+  console.log(props);
   return (
     <>
       {!dietResponseData ? (
