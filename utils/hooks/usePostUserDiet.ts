@@ -1,6 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { postUserDiet } from "../api/AxiosSetting";
-import { UserPostDietData } from "@/app/maintest/page";
+import { UserPostDietData, postUserDiet } from "../api/AxiosSetting";
 import { useToast } from "@chakra-ui/react";
 import { useUser } from "./useUser";
 
