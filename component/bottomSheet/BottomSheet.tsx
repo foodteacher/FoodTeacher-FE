@@ -1,7 +1,7 @@
 "use client";
 
 import { HStack, Heading, Text, VStack } from "@chakra-ui/react";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
 import HealthIcon from "../icon/HealthIcon";
 import Chatbot from "react-chatbot-kit";
@@ -56,6 +56,10 @@ const TheBottomSheet = () => {
           config={config}
           messageParser={MessageParser}
           actionProvider={ActionProvider}
+          placeholderText="답변을 입력해주세요."
+          validator={(input) => {
+            return input !== "";
+          }}
         />
       </BottomSheet>
     </>
