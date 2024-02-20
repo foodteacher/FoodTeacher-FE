@@ -1,7 +1,6 @@
 import axios from "axios";
 import { UserInfoType } from "../../component/template/SignupTemplate";
 import { redirect } from "next/navigation";
-import { UserPostDietData } from "@/app/maintest/page";
 import { LoginUserType } from "../hooks/useUser";
 
 export const instacne = axios.create({
@@ -11,6 +10,11 @@ export const instacne = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+export interface UserPostDietData {
+  query: string;
+  userId?: string | null;
+}
 
 export interface DietResponse extends UserInfoType {
   breakfast: {
