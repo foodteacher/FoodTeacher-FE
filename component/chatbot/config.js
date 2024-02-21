@@ -23,6 +23,9 @@ const config = {
       widgetFunc: (props) => <DietChattingMsgCart {...props} />,
     },
   ],
+
+  customStyles: {},
+
   customMessages: {
     custom: (props) => <CustomMessage {...props} />,
   },

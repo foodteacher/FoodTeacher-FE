@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 
 const MessageParser = ({ children, actions }: any) => {
   const { checker } = children.props.state;
