@@ -24,13 +24,13 @@ const TheBottomSheet = () => {
         snapPoints={({ maxHeight }) => [
           maxHeight * 0.8,
           maxHeight * 0.5,
-          maxHeight * 0.1,
+          maxHeight * 0.13,
         ]}
         header={
           <VStack
             textAlign={"center"}
             w={"100%"}
-            padding={"13px 22px 0px 22px"}
+            padding={"13px 22px 20px 22px"}
             spacing={"0.5px"}
           >
             <HStack spacing={"2px"}>
