@@ -1,12 +1,8 @@
 .react-chatbot-kit-chat-container {
   width: 100%;
-  min-height: 520px;
-  /* max-height: 680px; */
   overflow: hidden;
   box-shadow: rgb(0 0 0 / 30%) 0px 12px 60px 5px;
-  position: absolute;
-  bottom: 0;
-  height: 100%;
+  height: auto;
 }
 
 .react-chatbot-kit-chat-header {
@@ -21,26 +17,22 @@
   display: none;
 }
 
-.react-chatbot-kit-chat-inner-container {
-  height: 1px;
-}
-
 .react-chatbot-kit-chat-input-container {
-  position: absolute;
+  position: fixed;
   padding: 0;
   bottom: 0;
   background-color: #ffffff;
 }
 
 .react-chatbot-kit-chat-message-container {
-  /* padding: 10% 1.3rem 13% 1.3rem; */
+  padding: 10% 1.3rem 13% 1.3rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
   background-color: #ffffff;
-  /* height: 200%; */
-  /* position: absolute; */
-  /* bottom: 3%; */
-  left: 0;
+  position: fixed;
+  top: 0;
+  height: 80%;
+  bottom: 3%;
   width: 100%;
 }
 
