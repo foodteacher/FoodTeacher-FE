@@ -22,7 +22,7 @@ const TheBottomSheet = () => {
         ref={sheetRef}
         blocking={false}
         snapPoints={({ maxHeight }) => [
-          maxHeight * 0.8,
+          maxHeight * 0.9,
           maxHeight * 0.5,
           maxHeight * 0.13,
         ]}

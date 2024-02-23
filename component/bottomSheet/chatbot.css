@@ -25,13 +25,12 @@
 }
 
 .react-chatbot-kit-chat-message-container {
-  padding: 5% 1.3rem 13% 1.3rem;
+  padding: 5.5% 1.3rem 13% 1.3rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
   background-color: #ffffff;
   position: fixed;
-  /* top: 0; */
-  height: 80%;
+  height: calc(100% - 110px);
   bottom: 3%;
   width: 100%;
 }
