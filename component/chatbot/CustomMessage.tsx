@@ -6,8 +6,6 @@ import LoadingLotte from "../../utils/json/loading.json";
 const CustomMessage = (props: any) => {
   const isLoading = props.payload.loading;
 
-  console.log(isLoading);
-
   return (
     <>
       {!isLoading ? (

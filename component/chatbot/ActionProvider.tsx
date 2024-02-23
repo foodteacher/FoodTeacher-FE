@@ -6,14 +6,12 @@ import { Card } from "@chakra-ui/react";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
   const dietResponse = useRef<DietResponse | null>();
-  // const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [isLoading, setIsLoading] = useState(true);
 
   const caloryCalAction = () => {
     const message = createChatBotMessage(
-      "칼로리 계산은 먹은 음식들의 칼로리를 계산해주는 기능이에요. 무엇을 얼마나 먹었는지 자세히 알려주실수록 정확한 정보를 드릴 수 있어요 :) \n 예시 : 밥 한공기, 닭가슴살 200g 을 먹었어.",
-      {}
+      "칼로리 계산은 먹은 음식들의 칼로리를 계산해주는 기능이에요. 무엇을 얼마나 먹었는지 자세히 알려주실수록 정확한 정보를 드릴 수 있어요 :) \n 예시 : 밥 한공기, 닭가슴살 200g 을 먹었어."
     );
     updateState([message], "calorie");
   };
