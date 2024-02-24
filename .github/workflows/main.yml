@@ -26,7 +26,7 @@ jobs:
 
     - name: Set up Environment Variables
       run: |
-        echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL_2 }}" >> .env
+        echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
         echo "NEXT_PUBLIC_KAKAO_REST_KEY=${{ secrets.NEXT_PUBLIC_KAKAO_REST_KEY }}" >> .env
 
     - name: build and push
