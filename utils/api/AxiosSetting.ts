@@ -109,16 +109,16 @@ export const postUserDiet = async (postDietData: UserPostDietData) => {
 
   const guestInfo = JSON.parse(localStorage.getItem("userInfo") as string);
 
-  const guestDietData = {
-    query: postDietData.query,
-    height: guestInfo.height,
-    weight: guestInfo.weight,
-    age: guestInfo.age,
-    gender: guestInfo.gender,
-    target_weight: guestInfo.target_weight,
-  };
-
-  const dietData = accessToken ? postDietData : guestDietData;
+  const dietData = accessToken
+    ? postDietData
+    : {
+        query: postDietData.query,
+        height: guestInfo.height,
+        weight: guestInfo.weight,
+        age: guestInfo.age,
+        gender: guestInfo.gender,
+        target_weight: guestInfo.target_weight,
+      };
 
   const res = await instacne.post(url, dietData, {
     headers: {

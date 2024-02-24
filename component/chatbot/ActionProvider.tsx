@@ -2,7 +2,6 @@
 import React, { useRef, useState } from "react";
 import { DietResponse, postUserDiet } from "../../utils/api/AxiosSetting";
 import { createCustomMessage } from "react-chatbot-kit";
-import { Card } from "@chakra-ui/react";
 
 const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
   const dietResponse = useRef<DietResponse | null>();
@@ -46,14 +45,14 @@ const ActionProvider = ({ createChatBotMessage, setState, children }: any) => {
   };
 
   const calculateNutrient = () => {
-    // const message = createChatBotMessage("아침", {});
+    const message = createChatBotMessage("아침", {});
 
     setTimeout(() => setIsLoading(false), 2000);
 
-    const message = createCustomMessage("test", "custom", {
-      delay: 300,
-      payload: { loading: isLoading },
-    });
+    // const message = createCustomMessage("test", "custom", {
+    //   delay: 300,
+    //   payload: { loading: isLoading },
+    // });
     updateState([message], "morning");
   };
 

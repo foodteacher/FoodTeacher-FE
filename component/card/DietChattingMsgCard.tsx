@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import WarningIcon from "../icon/WarningIcon";
 import { useRouter } from "next/navigation";
-import { DietResponse } from "../../utils/api/AxiosSetting";
 import MenuWidget from "../chatbot/widget/MenuWidget";
 import { cloneDeep } from "lodash";
 import { useState } from "react";
@@ -26,7 +25,6 @@ const DietChattingMsgCart = (props: any) => {
 
   const [dietResponseData, setDietResponseData] = useState(dietChecker);
 
-  console.log(props);
   return (
     <>
       {!dietResponseData ? (
