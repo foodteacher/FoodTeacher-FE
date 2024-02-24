@@ -2,7 +2,6 @@
 import { Box, Flex, Text, VStack } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import TodayReportCard from "../../../component/card/TodayReportCard";
-import TheHeader from "../../../component/header/TheHeader";
 import GoBackArrowIcon from "../../../component/icon/GoBackArrowIcon";
 import CharacterImgCard from "../../../component/card/CharacterImgCard";
 import { useLayoutEffect, useState } from "react";
@@ -39,23 +38,23 @@ const Page = () => {
         alignItems={"center"}
         bgColor={"#181818"}
       >
-        <TheHeader>
-          <Box
-            pos={"absolute"}
-            cursor={"pointer"}
-            onClick={() => router.push("/main")}
-          >
-            <GoBackArrowIcon />
-          </Box>
-          <Text
-            margin={"0 auto"}
-            color={"#FFFFFF"}
-            fontSize={"20px"}
-            fontWeight={"medium"}
-          >
-            레포트 상세보기
-          </Text>
-        </TheHeader>
+        {/* <TheHeader> */}
+        <Box
+          pos={"absolute"}
+          cursor={"pointer"}
+          onClick={() => router.push("/main")}
+        >
+          <GoBackArrowIcon />
+        </Box>
+        <Text
+          margin={"0 auto"}
+          color={"#FFFFFF"}
+          fontSize={"20px"}
+          fontWeight={"medium"}
+        >
+          레포트 상세보기
+        </Text>
+        {/* </TheHeader> */}
 
         <VStack w={"100%"} spacing={"16px"}>
           <CharacterImgCard userDiet={userDiet} />

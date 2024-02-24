@@ -1,7 +1,7 @@
 "use client";
 import { Flex } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
-import TheMainHeader from "../../component/header/TheMainHeader";
+import TheHeader from "../../component/header/TheHeader";
 import { usePathname } from "next/navigation";
 
 const ResponsiveLayout = ({ children }: { children: ReactNode }) => {
@@ -9,7 +9,7 @@ const ResponsiveLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <>
-      <TheMainHeader />
+      <TheHeader />
       <Flex
         as={"main"}
         flexDir={"column"}

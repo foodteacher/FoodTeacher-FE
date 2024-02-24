@@ -383,10 +383,6 @@ const WarningIcon = () => {
           </linearGradient>
           <linearGradient
             id="paint13_linear_268_5555"
-            x1="-nan"
-            y1="-nan"
-            x2="-nan"
-            y2="-nan"
             gradientUnits="userSpaceOnUse"
           >
             <stop stopColor="#F2E8FF" stopOpacity="0" />
