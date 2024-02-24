@@ -1,5 +1,4 @@
 "use client";
-
 import { HStack, Heading, Text, VStack } from "@chakra-ui/react";
 import { useRef } from "react";
 import { BottomSheet, BottomSheetRef } from "react-spring-bottom-sheet";
