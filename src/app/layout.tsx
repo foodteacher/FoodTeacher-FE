@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { ChakraLayout } from "@/app/ChakraLayout";
 import QueryLayout from "./QueryLayout";
-import TheMainHeader from "../../component/header/TheMainHeader";
 import GoogleAnalytics from "./GoogleAnalytics";
 import ResponsiveLayout from "./ResponsiveLayout";
 import "./globals.css";

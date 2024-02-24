@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import MyPageCharacter from "../../utils/img/MypageCharacter.png";
 import { useLayoutEffect, useState } from "react";
-import TheHeader from "../header/TheHeader";
+// import TheHeader from "../header/TheHeader";
 import CloseIcon from "../icon/CloseIcon";
 import TodayReportCard from "../card/TodayReportCard";
 import { UserInfoType } from "./SignupTemplate";
@@ -54,19 +54,6 @@ const MyPageTemplate = () => {
         alignItems={"center"}
         bgColor={"#F4F4F4"}
       >
-        <TheHeader>
-          <Text margin={"0 auto"} fontSize={"20px"} fontWeight={"medium"}>
-            마이페이지
-          </Text>
-          <Box
-            pos={"absolute"}
-            right={"22px"}
-            cursor={"pointer"}
-            onClick={() => router.push("/main")}
-          >
-            <CloseIcon />
-          </Box>
-        </TheHeader>
         <VStack w={"100%"} spacing={"15px"}>
           <VStack spacing={"16px"}>
             <Box bgColor={"white"} borderRadius={"40px"}>
